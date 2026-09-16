@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NORTECH Hardware | Servicio Técnico PC, Consolas & Hardware Gamer</title>
+    <style>
+        :root {
+            --bg-dark: #0a0c10;
+            --card-bg: #14171f;
+            --accent-blue: #0095f6;
+            --accent-green: #25d366;
+            --accent-ig: #e1306c;
+            --text-light: #f3f4f6;
+            --text-muted: #9ca3af;
+            --border-color: #232733;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background-color: rgba(10, 12, 16, 0.95);
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 900;
+            letter-spacing: 1.5px;
+            color: #fff;
+        }
+
+        .logo span {
+            color: var(--accent-blue);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .btn-ig-header {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white !important;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* HERO FLYER INICIAL */
+        .hero-container {
+            position: relative;
+            background: radial-gradient(circle at 50% 20%, rgba(0, 149, 246, 0.15) 0%, rgba(10, 12, 16, 1) 70%);
+            padding: 4rem 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero-flyer {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text .badge {
+            background-color: rgba(0, 149, 246, 0.2);
+            color: var(--accent-blue);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1.2rem;
+            border: 1px solid rgba(0, 149, 246, 0.4);
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.1;
+            margin-bottom: 1.2rem;
+            font-weight: 900;
+        }
+
+        .hero-text h1 span {
+            color: var(--accent-blue);
+            background: linear-gradient(90deg, #0095f6, #00d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.15rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-ws {
+            background-color: var(--accent-green);
+            color: #fff;
+            padding: 1rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-ws:hover { transform: translateY(-2px); }
+
+        .btn-ig {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: #fff;
+            padding: 1rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+            box-shadow: 0 4px 20px rgba(225, 48, 108, 0.3);
+            transition: transform 0.2s;
+        }
+
+        .btn-ig:hover { transform: translateY(-2px); }
+
+        /* FLYER VISUAL CARD */
+        .flyer-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(0, 149, 246, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .flyer-badge-top {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--accent-blue);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .flyer-img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .flyer-img-grid img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .flyer-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 1.2rem;
+            text-align: center;
+            background: rgba(0,0,0,0.4);
+            padding: 0.8rem;
+            border-radius: 8px;
+        }
+
+        .stat-item h3 { color: var(--accent-blue); font-size: 1.1rem; }
+        .stat-item p { color: var(--text-muted); font-size: 0.75rem; }
+
+        /* MARCAS / BRANDS SECTION */
+        .brands-section {
+            padding: 2.5rem 2rem;
+            background-color: #0d0f14;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .brands-title {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .brands-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem 3rem;
+        }
+
+        .brand-item {
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 800;
+            opacity: 0.7;
+            letter-spacing: 1px;
+            transition: opacity 0.2s, color 0.2s;
+        }
+
+        .brand-item:hover {
+            opacity: 1;
+            color: var(--accent-blue);
+        }
+
+        /* SERVICES */
+        .services { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 0.5rem; }
+        .section-subtitle { text-align: center; color: var(--text-muted); margin-bottom: 3.5rem; font-size: 1.1rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s;
+        }
+
+        .card:hover { border-color: var(--accent-blue); }
+        .card-icon { font-size: 2.2rem; margin-bottom: 1rem; }
+        .card h3 { margin-bottom: 0.8rem; color: #fff; font-size: 1.3rem; }
+        .card p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; }
+        .card ul { list-style: none; color: var(--text-muted); font-size: 0.9rem; }
+        .card ul li { margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px; }
+        .card ul li::before { content: "✓"; color: var(--accent-blue); font-weight: bold; }
+
+        /* WORK SHOWCASE */
+        .showcase {
+            background-color: #0d0f14;
+            padding: 5rem 2rem;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .showcase-content { max-width: 1200px; margin: 0 auto; }
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2.5rem; }
+        
+        .gallery-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .gallery-item img { width: 100%; height: 240px; object-fit: cover; display: block; }
+        .gallery-info { padding: 1.5rem; }
+        .gallery-info h4 { color: #fff; margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .gallery-info p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* INSTAGRAM BANNER */
+        .ig-banner {
+            background: linear-gradient(135deg, rgba(225, 48, 108, 0.1) 0%, rgba(10, 12, 16, 1) 100%);
+            border: 1px solid rgba(225, 48, 108, 0.3);
+            border-radius: 16px;
+            padding: 3rem 2rem;
+            max-width: 1100px;
+            margin: 4rem auto;
+            text-align: center;
+        }
+
+        .ig-banner h3 { font-size: 2rem; margin-bottom: 0.8rem; }
+        .ig-banner p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.8rem; }
+
+        /* WHY US & FAQ */
+        .why-us { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .feature-box { text-align: center; padding: 2rem; background-color: var(--card-bg); border-radius: 12px; border: 1px solid var(--border-color); }
+        .feature-box h4 { color: var(--accent-blue); margin-top: 1rem; margin-bottom: 0.5rem; }
+        .feature-box p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .faq-section { padding: 4rem 2rem; max-width: 900px; margin: 0 auto; }
+        .faq-item { background-color: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.2rem 1.5rem; margin-bottom: 1rem; }
+        .faq-item h4 { color: #fff; margin-bottom: 0.4rem; }
+        .faq-item p { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* CONTACT */
+        .contact-section { padding: 5rem 2rem; background-color: #0d0f14; text-align: center; border-top: 1px solid var(--border-color); }
+        .contact-card { background-color: var(--card-bg); max-width: 700px; margin: 2.5rem auto 0 auto; padding: 3rem 2rem; border-radius: 16px; border: 1px solid var(--border-color); }
+
+        /* FOOTER */
+        footer { text-align: center; padding: 2.5rem; color: var(--text-muted); border-top: 1px solid var(--border-color); font-size: 0.85rem; }
+
+        /* FLOAT WHATSAPP */
+        .float-ws {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--accent-green);
+            color: white;
+            border-radius: 50px;
+            padding: 14px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: transform 0.2s;
+        }
+
+        .float-ws:hover { transform: scale(1.05); }
+
+        @media (max-width: 900px) {
+            .hero-flyer { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 2.2rem; }
+            .hero-buttons { justify-content: center; }
+            header { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">NORTECH <span>HARDWARE</span></div>
+        <nav>
+            <a href="#servicios">Servicios</a>
+            <a href="#trabajos">Trabajos</a>
+            <a href="#contacto">Ubicación</a>
+            <a href="https://www.instagram.com/nortech_zn?igsi=MTA1NW81YTI4c2Zmcg==" target="_blank" class="btn-ig-header">📸 Instagram</a>
+        </nav>
+    </header>
+
+    <!-- HERO FLYER INICIAL -->
+    <section class="hero-container">
+        <div class="hero-flyer">
+            
+            <div class="hero-text">
+                <span class="badge">📍 Taller Técnico Especializado | Munro, Zona Norte</span>
+                <h1>Soporte Técnico Profesional, Mantenimiento & <span>Hardware Gamer</span></h1>
+                <p>Optimizamos el rendimiento de tu equipo. Mantenimiento profundo de PCs y consolas, eliminación de sobrecalentamiento, cambio de pasta térmica de nivel competición, reacondicionamiento de Liquid Cooling y armado de setups a medida.</p>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/5491173607837?text=Hola!%20Quiero%20consultar%20por%20un%20presupuesto%20técnico." class="btn-ws" target="_blank">💬 Presupuesto por WhatsApp</a>
+                    <a href="https://www.instagram.com/nortech_zn?igsi=MTA1NW81YTI4c2Zmcg==" class="btn-ig" target="_blank">📸 Ver Instagram @nortech_zn</a>
+                </div>
+            </div>
+
+            <div class="flyer-card">
+                <span class="flyer-badge-top">Trabajo Real en Taller</span>
+                <h3 style="margin-bottom: 0.3rem;">NORTECH Lab Spec</h3>
+                <p style="color: var(--text-muted); font-size: 0.85rem;">Especialistas en GPUs y Watercooling</p>
+                
+                <div class="flyer-img-grid">
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=500&q=80" alt="GPU Mantenimiento">
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=500&q=80" alt="PC Watercooling">
+                </div>
+
+                <div class="flyer-stats">
+                    <div class="stat-item">
+                        <h3>100%</h3>
+                        <p>Transparencia</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Munro</h3>
+                        <p>Zona Norte</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>Garantía</h3>
+                        <p>En Trabajos</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MARCAS OFICIALES -->
+    <section class="brands-section">
+        <div class="brands-title">Trabajamos con las principales marcas de hardware mundial</div>
+        <div class="brands-grid">
+            <span class="brand-item">ASUS</span>
+            <span class="brand-item">GIGABYTE</span>
+            <span class="brand-item">MSI</span>
+            <span class="brand-item">AMD</span>
+            <span class="brand-item">INTEL</span>
+            <span class="brand-item">NVIDIA</span>
+            <span class="brand-item">CORSAIR</span>
+            <span class="brand-item">KINGSTON</span>
+            <span class="brand-item">HYPERX</span>
+            <span class="brand-item">WESTERN DIGITAL</span>
+            <span class="brand-item">EVGA</span>
+            <span class="brand-item">REDRAGON</span>
+        </div>
+    </section>
+
+    <!-- SERVICIOS COMPLETOS -->
+    <section class="services" id="servicios">
+        <h2 class="section-title">Nuestros Servicios Técnicos</h2>
+        <p class="section-subtitle">Soluciones integrales de hardware con diagnóstico preciso y máxima transparencia</p>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-icon">❄️</div>
+                <h3>Mantenimiento & Pasta Térmica</h3>
+                <p>Eliminación total de polvo, reemplazo de pasta térmica de alta conductividad para procesadores y placas de video. Reacondicionamiento integral de refrigeración líquida.</p>
+                <ul>
+                    <li>Baja drástica de temperaturas</li>
+                    <li>Disminución del ruido de coolers</li>
+                    <li>Solución a apagues repentinos por sobrecalentamiento</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🚀</div>
+                <h3>Upgrades de Velocidad (SSD / RAM)</h3>
+                <p>Transformá la velocidad de tu computadora. Instalación de discos sólidos SSD NVMe/SATA, duplicación de memoria RAM y optimización completa del sistema.</p>
+                <ul>
+                    <li>Arranque de sistema en pocos segundos</li>
+                    <li>Multitarea fluida sin cuelgues</li>
+                    <li>Migración limpia de tus archivos personales</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🖥️</div>
+                <h3>Armado de PCs a Medida</h3>
+                <p>Ensamblado profesional para Gaming, Streaming o Trabajo pesado. Selección inteligente de componentes para maximizar el presupuesto invertido.</p>
+                <ul>
+                    <li>Gestión de cables limpia y prolija</li>
+                    <li>Optimización de flujo de aire interno</li>
+                    <li>Actualización e instalación de BIOS estable</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🎮</div>
+                <h3>Mantenimiento de Consolas</h3>
+                <p>Servicio preventivo y correctivo para PlayStation, Xbox y Nintendo Switch. Solución definitiva a la turbina de aire y problemas térmicos.</p>
+                <ul>
+                    <li>Limpieza física interna profunda</li>
+                    <li>Cambio de pads y pasta térmica</li>
+                    <li>Pruebas de estrés previo a la entrega</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Formateo & Sistema Operativo</h3>
+                <p>Instalación limpia de Windows, controladores oficiales actualizados, pack esencial de programas y software de seguridad sin basura adicional.</p>
+                <ul>
+                    <li>Sistema rápido y libre de virus</li>
+                    <li>Configuración de backup de datos</li>
+                    <li>Listas para enchufar y usar</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">🛠️</div>
+                <h3>Diagnóstico de Componentes</h3>
+                <p>Pruebas individuales de Placas de Video (GPU), Fuentes de Alimentación, Mothers y Memorias para identificar fallas complejas de hardware.</p>
+                <ul>
+                    <li>Presupuesto transparente previa reparación</li>
+                    <li>Atención personalizada directa por técnico</li>
+                    <li>Recepción y retiro en Zona Norte</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRABAJOS Y GALERÍA REAL -->
+    <section class="showcase" id="trabajos">
+        <div class="showcase-content">
+            <h2 class="section-title">Trabajos Recientes en el Taller</h2>
+            <p class="section-subtitle">Calidad de armado y mantenimiento real fotografiado en NORTECH</p>
+            
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?auto=format&fit=crop&w=600&q=80" alt="GPU RTX Eagle Tech">
+                    <div class="gallery-info">
+                        <h4>Mantenimiento de GPU & Pasta Térmica</h4>
+                        <p>Inspección técnica de placas Gigabyte GeForce RTX. Reemplazo de pads térmicos y pasta para temperaturas óptimas de juego.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?auto=format&fit=crop&w=600&q=80" alt="Watercooling Custom PC">
+                    <div class="gallery-info">
+                        <h4>Reacondicionamiento de Liquid Cooling</h4>
+                        <p>Limpieza integral de radiadores, ventiladores RGB y depósitos en setups gamer con gabinetes panorámicos.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Setup Gamer Ensamblado">
+                    <div class="gallery-info">
+                        <h4>Armado de PC Gamer a Medida</h4>
+                        <p>Ensamblado completo con gestión de cableado invisible, flujo de aire positivo y testeos de estrés intensivos.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INSTAGRAM BANNER -->
+            <div class="ig-banner">
+                <h3>📸 ¡Seguinos en Instagram para ver más contenido!</h3>
+                <p>Publicamos mantenimientos diarios, pruebas de rendimiento, videos del taller y tips para cuidar tu hardware.</p>
+                <a href="https://www.instagram.com/nortech_zn?igsi=MTA1NW81YTI4c2Zmcg==" class="btn-ig" target="_blank">👉 Ver perfil en Instagram @nortech_zn</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- POR QUÉ ELEGIRNOS -->
+    <section class="why-us">
+        <h2 class="section-title">¿Por qué confiar en NORTECH Hardware?</h2>
+        <div class="features-grid">
+            <div class="feature-box">
+                <div style="font-size: 2.5rem;">🔎</div>
+                <h4>Transparencia Total</h4>
+                <p>Te mostramos el estado de tu equipo antes y después con fotos y videos directos. Sin sorpresas.</p>
+            </div>
+            <div class="feature-box">
+                <div style="font-size: 2.5rem;">⚡</div>
+                <h4>Rapidez y Compromiso</h4>
+                <p>Entendemos la importancia de tu PC para trabajar o jugar. Tiempos de entrega coordinados.</p>
+            </div>
+            <div class="feature-box">
+                <div style="font-size: 2.5rem;">📍</div>
+                <h4>Atención Local en Munro</h4>
+                <p>Ubicados en Zona Norte. Podés traer tu equipo con total tranquilidad para su revisión.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="faq-section">
+        <h2 class="section-title">Preguntas Frecuentes</h2>
+        <p class="section-subtitle" style="margin-bottom: 2rem;">Despejá tus dudas antes de traer tu equipo</p>
+
+        <div class="faq-item">
+            <h4>¿Cuánto tarda un mantenimiento preventivo o cambio de pasta térmica?</h4>
+            <p>Por lo general se realiza y entrega dentro de las 24 a 48 hs hábiles, dependiendo del flujo de trabajo del taller.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>¿El diagnóstico inicial tiene costo?</h4>
+            <p>No, la evaluación y presupuesto inicial para mantenimiento o upgrades son sin cargo.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>¿Dónde se retiran o entregan los equipos?</h4>
+            <p>Directamente en nuestro taller en Francisco Borges 4838, Munro, Zona Norte (coordinando horario previo).</p>
+        </div>
+    </section>
+
+    <!-- CONTACTO Y UBICACION -->
+    <section class="contact-section" id="contacto">
+        <h2 class="section-title">¿Listo para optimizar tu equipo?</h2>
+        <p class="section-subtitle">Escribinos por WhatsApp o Instagram para coordinar la recepción o pedir tu presupuesto.</p>
+
+        <div class="contact-card">
+            <h3>📍 Taller de Atención & Retiro</h3>
+            <p><strong>Dirección:</strong> Francisco Borges 4838, Munro, Buenos Aires</p>
+            <p><strong>Teléfono / WhatsApp:</strong> 11 7360-7837</p>
+            <p><strong>Instagram:</strong> @nortech_zn</p>
+            <p><strong>Horarios:</strong> Lunes a Sábados (Coordinación previa)</p>
+            <br>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/5491173607837?text=Hola!%20Quiero%20coordinar%20para%20llevar%20mi%20equipo." class="btn-ws" target="_blank">💬 WhatsApp</a>
+                <a href="https://www.instagram.com/nortech_zn?igsi=MTA1NW81YTI4c2Zmcg==" class="btn-ig" target="_blank">📸 Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTON FLOTANTE -->
+    <a href="https://wa.me/5491173607837" class="float-ws" target="_blank">
+        💬 WhatsApp
+    </a>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 NORTECH Hardware - Servicio Técnico Especializado en PCs & Consolas. Munro, Buenos Aires.</p>
+    </footer>
+
+</body>
+</html>
