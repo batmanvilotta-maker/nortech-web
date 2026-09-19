@@ -5,7 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NORTECH | Servicio Técnico & Hardware Store</title>
   <style>
-    /* RESET Y VARIABLES DE ESTILO */
+    /* VARIABLES Y RESET NORTECH */
+    :root {
+      --bg-principal: #0f172a;
+      --bg-tarjeta: #1e293b;
+      --border-color: #334155;
+      --accent-blue: #38bdf8;
+      --accent-green: #10b981;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,16 +23,16 @@
     }
 
     body {
-      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-      background-color: #0f172a;
-      color: #f8fafc;
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-principal);
+      color: var(--text-main);
       line-height: 1.6;
     }
 
-    /* BARRA DE NAVEGACIÓN SUPERIOR */
+    /* HEADER & NAVEGACIÓN */
     header {
-      background-color: #1e293b;
-      border-bottom: 1px solid #334155;
+      background-color: var(--bg-tarjeta);
+      border-bottom: 1px solid var(--border-color);
       position: sticky;
       top: 0;
       z-index: 100;
@@ -40,13 +50,13 @@
     .logo {
       font-size: 1.8rem;
       font-weight: 800;
-      color: #38bdf8;
+      color: var(--accent-blue);
       text-decoration: none;
       letter-spacing: 1px;
     }
 
     .logo span {
-      color: #10b981;
+      color: var(--accent-green);
     }
 
     .nav-menu {
@@ -64,11 +74,11 @@
     }
 
     .nav-menu a:hover {
-      color: #38bdf8;
+      color: var(--accent-blue);
     }
 
     .btn-wsp-head {
-      background-color: #10b981;
+      background-color: var(--accent-green);
       color: #ffffff !important;
       padding: 8px 16px;
       border-radius: 6px;
@@ -80,12 +90,12 @@
       background-color: #059669;
     }
 
-    /* HERO BANNER - SERVICIO TÉCNICO */
+    /* HERO / BANNER PRINCIPAL */
     .hero {
       background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
       padding: 60px 20px;
       text-align: center;
-      border-bottom: 1px solid #334155;
+      border-bottom: 1px solid var(--border-color);
     }
 
     .hero-content {
@@ -93,20 +103,20 @@
       margin: 0 auto;
     }
 
-    .hero h2 {
+    .hero h1 {
       font-size: 2.5rem;
-      color: #f8fafc;
+      color: var(--text-main);
       margin-bottom: 15px;
       font-weight: 800;
     }
 
-    .hero h2 span {
-      color: #38bdf8;
+    .hero h1 span {
+      color: var(--accent-blue);
     }
 
     .hero p {
       font-size: 1.15rem;
-      color: #94a3b8;
+      color: var(--text-muted);
       margin-bottom: 25px;
     }
 
@@ -132,8 +142,8 @@
     }
 
     .btn-secondary {
-      background-color: #334155;
-      color: #f8fafc;
+      background-color: var(--border-color);
+      color: var(--text-main);
       padding: 12px 24px;
       border-radius: 8px;
       text-decoration: none;
@@ -145,7 +155,7 @@
       background-color: #475569;
     }
 
-    /* SECCIÓN SERVICIOS TÉCNICOS */
+    /* SECCIONES Y CONTENEDORES */
     .seccion {
       max-width: 1200px;
       margin: 50px auto;
@@ -153,19 +163,18 @@
     }
 
     .titulo-seccion {
-      text-align: center;
       font-size: 2rem;
-      color: #f8fafc;
-      margin-bottom: 10px;
+      color: var(--text-main);
+      margin-bottom: 8px;
       font-weight: 800;
     }
 
     .subtitulo-seccion {
-      text-align: center;
-      color: #94a3b8;
-      margin-bottom: 40px;
+      color: var(--text-muted);
+      margin-bottom: 30px;
     }
 
+    /* TARJETAS DE SERVICIO TÉCNICO */
     .grid-servicios {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -173,8 +182,8 @@
     }
 
     .card-servicio {
-      background-color: #1e293b;
-      border: 1px solid #334155;
+      background-color: var(--bg-tarjeta);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 25px;
       text-align: center;
@@ -182,7 +191,7 @@
     }
 
     .card-servicio:hover {
-      border-color: #38bdf8;
+      border-color: var(--accent-blue);
     }
 
     .icon-servicio {
@@ -191,16 +200,16 @@
     }
 
     .card-servicio h3 {
-      color: #38bdf8;
+      color: var(--accent-blue);
       margin-bottom: 10px;
     }
 
     .card-servicio p {
-      color: #94a3b8;
+      color: var(--text-muted);
       font-size: 0.95rem;
     }
 
-    /* TIENDA ONLINE / CATALOGO */
+    /* BARRA DE BÚSQUEDA Y FILTROS DE TIENDA */
     .tienda-header {
       display: flex;
       justify-content: space-between;
@@ -218,16 +227,16 @@
     .buscador-box input {
       width: 100%;
       padding: 12px 16px;
-      background-color: #1e293b;
-      border: 1px solid #334155;
+      background-color: var(--bg-tarjeta);
+      border: 1px solid var(--border-color);
       border-radius: 8px;
-      color: #f8fafc;
+      color: var(--text-main);
       font-size: 0.95rem;
       outline: none;
     }
 
     .buscador-box input:focus {
-      border-color: #38bdf8;
+      border-color: var(--accent-blue);
     }
 
     .filtros-categorias {
@@ -238,9 +247,9 @@
     }
 
     .btn-cat {
-      background-color: #1e293b;
-      color: #94a3b8;
-      border: 1px solid #334155;
+      background-color: var(--bg-tarjeta);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
       padding: 10px 18px;
       border-radius: 8px;
       cursor: pointer;
@@ -252,10 +261,10 @@
     .btn-cat:hover, .btn-cat.active {
       background-color: #0284c7;
       color: #ffffff;
-      border-color: #38bdf8;
+      border-color: var(--accent-blue);
     }
 
-    /* GRILLA DE PRODUCTOS */
+    /* GRILLA DE HARDWARE (MÁXIMO 12 TARJETAS POR PÁGINA) */
     .grid-productos {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -264,8 +273,8 @@
     }
 
     .card-producto {
-      background-color: #1e293b;
-      border: 1px solid #334155;
+      background-color: var(--bg-tarjeta);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 16px;
       display: flex;
@@ -276,7 +285,7 @@
 
     .card-producto:hover {
       transform: translateY(-5px);
-      border-color: #38bdf8;
+      border-color: var(--accent-blue);
     }
 
     .img-container {
@@ -330,7 +339,7 @@
     }
 
     .btn-comprar {
-      background-color: #10b981;
+      background-color: var(--accent-green);
       color: #ffffff;
       border: none;
       padding: 12px;
@@ -346,7 +355,7 @@
       background-color: #059669;
     }
 
-    /* CONTROLES DE PAGINACIÓN */
+    /* PAGINACIÓN */
     .paginacion-wrapper {
       display: flex;
       justify-content: center;
@@ -356,8 +365,8 @@
     }
 
     .btn-pag {
-      background-color: #334155;
-      color: #f8fafc;
+      background-color: var(--border-color);
+      color: var(--text-main);
       border: 1px solid #475569;
       padding: 10px 22px;
       border-radius: 8px;
@@ -368,7 +377,7 @@
 
     .btn-pag:hover:not(:disabled) {
       background-color: #0284c7;
-      border-color: #38bdf8;
+      border-color: var(--accent-blue);
     }
 
     .btn-pag:disabled {
@@ -378,25 +387,25 @@
 
     .info-pagina {
       font-size: 1rem;
-      color: #94a3b8;
+      color: var(--text-muted);
     }
 
     .info-pagina strong {
-      color: #38bdf8;
+      color: var(--accent-blue);
     }
 
     .estado-mensaje {
       grid-column: 1 / -1;
       text-align: center;
       font-size: 1.2rem;
-      color: #94a3b8;
+      color: var(--text-muted);
       padding: 60px 20px;
     }
 
     /* FOOTER */
     footer {
-      background-color: #1e293b;
-      border-top: 1px solid #334155;
+      background-color: var(--bg-tarjeta);
+      border-top: 1px solid var(--border-color);
       padding: 40px 20px;
       margin-top: 80px;
       text-align: center;
@@ -406,16 +415,11 @@
       color: #64748b;
       font-size: 0.95rem;
     }
-
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
   </style>
 </head>
 <body>
 
-  <!-- BARRA NAVEGACIÓN -->
+  <!-- BARRA DE NAVEGACIÓN -->
   <header>
     <div class="nav-container">
       <a href="#" class="logo">NOR<span>TECH</span></a>
@@ -430,47 +434,47 @@
   <!-- HERO BANNER -->
   <section class="hero">
     <div class="hero-content">
-      <h2>Servicio Técnico Profesional & <span>Hardware Store</span></h2>
-      <p>Reparación especializada de Consolas (PS4, PS5, Nintendo Switch, Xbox) y Notebooks. Venta de componentes de PC actualizados con garantía.</p>
+      <h1>Servicio Técnico Especializado & <span>Hardware Store</span></h1>
+      <p>Reparación profesional de consolas (PS4, PS5, Nintendo Switch, Xbox), mantenimiento de Notebooks y catálogo de componentes de PC actualizados.</p>
       <div class="hero-buttons">
-        <a href="#servicios" class="btn-primary">Solicitar Reparación</a>
-        <a href="#catalogo" class="btn-secondary">Ver Catálogo de Componentes</a>
+        <a href="#servicios" class="btn-primary">Solicitar Servicio Técnico</a>
+        <a href="#catalogo" class="btn-secondary">Explorar Componentes</a>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN SERVICIOS TÉCNICOS -->
+  <!-- SECCIÓN SERVICIO TÉCNICO -->
   <section id="servicios" class="seccion">
-    <h2 class="titulo-seccion">Nuestros Servicios Especializados</h2>
-    <p class="subtitulo-seccion">Diagnósticos precisos y reparaciones con repuestos de alta calidad</p>
+    <h2 class="titulo-seccion">Servicio Técnico Especializado</h2>
+    <p class="subtitulo-seccion">Mantenimiento preventivo, diagnósticos de precisión y reparación de hardware</p>
 
     <div class="grid-servicios">
       <div class="card-servicio">
         <div class="icon-servicio">🎮</div>
         <h3>Consolas de Videojuegos</h3>
-        <p>Mantenimiento preventivo, cambio de pasta térmica (Metal Líquido), reparación de HDMI, fuentes y lecturas en PS4, PS5, Nintendo Switch y Xbox.</p>
+        <p>Mantenimiento profundo, cambio de pasta térmica (Metal Líquido), reparación de puerto HDMI, fuentes y lecturas en PS4, PS5, Nintendo Switch y Xbox.</p>
       </div>
 
       <div class="card-servicio">
         <div class="icon-servicio">💻</div>
-        <h3>Computadoras & Notebooks</h3>
-        <p>Formateo, optimización, reparación de placas madre, cambio de pantallas, teclados, bisagras e instalación de unidades SSD ultra rápidas.</p>
+        <h3>Notebooks & Computadoras</h3>
+        <p>Optimización completa, formateo, reballing, cambio de módulos RAM, unidades SSD ultra rápidas, reparación de bisagras y pantallas.</p>
       </div>
 
       <div class="card-servicio">
-        <div class="icon-servicio">🛠️</div>
+        <div class="icon-servicio">🖥️</div>
         <h3>Armado de PCs Personalizadas</h3>
-        <p>Asesoramiento y ensamblado paso a paso para PCs Gamer, Trabajo o Streamer adaptadas exactamente a tu presupuesto.</p>
+        <p>Asesoramiento y ensamblado profesional para PCs Gamer, Streamer o Estaciones de Trabajo adaptadas a tu presupuesto.</p>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN TIENDA ONLINE / COMPONENTES -->
+  <!-- SECCIÓN CATÁLOGO STORE -->
   <section id="catalogo" class="seccion">
     <div class="tienda-header">
       <div>
-        <h2 class="titulo-seccion" style="text-align: left; margin-bottom: 5px;">Componentes de PC</h2>
-        <p style="color: #94a3b8;">Catálogo actualizado con margen transparente y entrega inmediata</p>
+        <h2 class="titulo-seccion">Catálogo de Componentes</h2>
+        <p class="subtitulo-seccion" style="margin-bottom: 0;">Stock real y directo con recargo transparente de 15%</p>
       </div>
 
       <!-- BUSCADOR EN TIEMPO REAL -->
@@ -479,7 +483,7 @@
       </div>
     </div>
 
-    <!-- BOTONES DE CATEGORÍAS -->
+    <!-- BOTONES DE CATEGORÍA -->
     <div class="filtros-categorias">
       <button class="btn-cat active" onclick="filtrarPorCategoria('todos', this)">Todos</button>
       <button class="btn-cat" onclick="filtrarPorCategoria('pcs-armadas', this)">💻 PCs Armadas</button>
@@ -493,21 +497,21 @@
       <button class="btn-cat" onclick="filtrarPorCategoria('perifericos', this)">Periféricos / Varios</button>
     </div>
 
-    <!-- GRILLA DE PRODUCTOS (MÁXIMO 12 POR PÁGINA) -->
+    <!-- GRILLA DE PRODUCTOS (12 POR PÁGINA) -->
     <div id="contenedor-productos" class="grid-productos">
       <div class="estado-mensaje">Cargando catálogo en vivo de NORTECH...</div>
     </div>
 
-    <!-- BOTONES ANTERIOR / SIGUIENTE -->
+    <!-- PAGINACIÓN -->
     <div id="paginacion-container"></div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; NORTECH Hardware & Service. Todos los derechos reservados.</p>
+    <p>&copy; NORTECH Servicio Técnico & Hardware Store. Todos los derechos reservados.</p>
   </footer>
 
-  <!-- SCRIPT DE LÓGICA Y CONEXIÓN A API -->
+  <!-- LÓGICA JAVASCRIPT CONECTADA A RENDER -->
   <script>
     let todosLosProductos = [];
     let productosFiltrados = [];
@@ -518,14 +522,14 @@
     const contenedorProductos = document.getElementById('contenedor-productos');
     const contenedorPaginacion = document.getElementById('paginacion-container');
 
-    // CONEXIÓN CON BACKEND DE RENDER
+    // CONEXIÓN CON RENDER
     fetch('https://nortech-backend.onrender.com/api/componentes')
       .then(res => {
         if (!res.ok) throw new Error('Error al conectar con la API');
         return res.json();
       })
       .then(data => {
-        // Excluimos avisos de descuento ("AHORRA $...")
+        // Excluimos promociones secundarias ("AHORRA $...")
         todosLosProductos = data.filter(p => p.category !== 'descuentos');
         productosFiltrados = [...todosLosProductos];
         
@@ -533,10 +537,10 @@
       })
       .catch(err => {
         console.error('Error:', err);
-        contenedorProductos.innerHTML = '<div class="estado-mensaje">Ocurrió un problema al conectar con el servidor. Por favor, reintenta en unos instantes.</div>';
+        contenedorProductos.innerHTML = '<div class="estado-mensaje">Ocurrió un problema al cargar el catálogo. Por favor reintenta en unos instantes.</div>';
       });
 
-    // MOSTRAR 12 PRODUCTOS
+    // RENDERIZAR MÁXIMO 12 TARJETAS
     function renderizarPagina(pagina) {
       paginaActual = pagina;
       contenedorProductos.innerHTML = '';
@@ -546,7 +550,7 @@
       const productosVisibles = productosFiltrados.slice(inicio, fin);
 
       if (productosVisibles.length === 0) {
-        contenedorProductos.innerHTML = '<div class="estado-mensaje">No se encontraron productos que coincidan con tu búsqueda.</div>';
+        contenedorProductos.innerHTML = '<div class="estado-mensaje">No se encontraron productos en esta sección.</div>';
         contenedorPaginacion.innerHTML = '';
         return;
       }
@@ -572,7 +576,7 @@
       dibujarPaginador();
     }
 
-    // NAVEGACIÓN ANTERIOR / SIGUIENTE
+    // NAVEGACIÓN ENTRE PÁGINAS
     function dibujarPaginador() {
       const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
       
@@ -602,17 +606,16 @@
       }
     }
 
-    // FILTRO POR CATEGORÍAS
+    // FILTRADO Y BUSCADOR
     function filtrarPorCategoria(categoria, boton) {
       categoriaSeleccionada = categoria;
       document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
       if (boton) boton.classList.add('active');
 
-      document.getElementById('input-busqueda').value = ''; // Limpiar buscador
+      document.getElementById('input-busqueda').value = '';
       aplicarFiltros();
     }
 
-    // BUSCADOR EN TIEMPO REAL
     function buscarProductos() {
       aplicarFiltros();
     }
@@ -644,7 +647,6 @@
       return nombres[cat] || 'Componente';
     }
 
-    // ENVIAR CONSULTA O PEDIDO DIRECTO A WHATSAPP
     function consultarProducto(nombreProd, precio) {
       const mensaje = encodeURIComponent(`Hola NORTECH! Quisiera consultar por el producto: "${nombreProd}" ($${precio.toLocaleString('es-AR')}).`);
       window.open(`https://wa.me/?text=${mensaje}`, '_blank');
