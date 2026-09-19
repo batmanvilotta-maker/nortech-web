@@ -3,654 +3,736 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NORTECH | Servicio Técnico & Hardware Store</title>
+
+  <title>NORTECH | Servicio Técnico de PC, Consolas y Computadoras en Munro</title>
+  <meta name="description" content="Laboratorio especializado en reparación de computadoras, notebooks, consolas y tienda online en Munro, Vicente López y Zona Norte. Diagnóstico de precisión y garantía escrita.">
+  <meta name="keywords" content="servicio tecnico pc, reparacion de computadoras, munro, zona norte, servicio tecnico notebook, consolas">
+  <meta name="robots" content="index, follow">
+
+  <link rel="icon" type="image/png" href="logo.png" />
+
+  <!-- Scripts y Estilos -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
-    /* VARIABLES Y RESET NORTECH */
-    :root {
-      --bg-principal: #0f172a;
-      --bg-tarjeta: #1e293b;
-      --border-color: #334155;
-      --accent-blue: #38bdf8;
-      --accent-green: #10b981;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #050811; color: #f1f5f9; overflow-x: hidden; }
+    .font-orbitron { font-family: 'Orbitron', sans-serif; }
+    
+    .hero-bg {
+      background: linear-gradient(180deg, rgba(5,8,17,0.75) 0%, rgba(5,8,17,0.98) 85%, #050811 100%),
+                  url('https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=1920&auto=format&fit=crop');
+      background-size: cover; background-position: center; background-attachment: fixed;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    }
+    .glass-card:hover { 
+      border-color: rgba(6, 182, 212, 0.5); 
+      box-shadow: 0 0 25px rgba(6, 182, 212, 0.25);
     }
 
-    body {
-      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background-color: var(--bg-principal);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+    .text-glow { text-shadow: 0 0 15px rgba(6, 182, 212, 0.6); }
 
-    /* HEADER & NAVEGACIÓN */
-    header {
-      background-color: var(--bg-tarjeta);
-      border-bottom: 1px solid var(--border-color);
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 15px 20px;
+    .slider-track {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      width: 200%;
+      animation: scroll 25s linear infinite;
     }
+    .slider-track:hover { animation-play-state: paused; }
 
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: var(--accent-blue);
-      text-decoration: none;
-      letter-spacing: 1px;
-    }
-
-    .logo span {
-      color: var(--accent-green);
-    }
-
-    .nav-menu {
-      display: flex;
-      gap: 20px;
-      align-items: center;
-    }
-
-    .nav-menu a {
-      color: #cbd5e1;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: color 0.2s;
-    }
-
-    .nav-menu a:hover {
-      color: var(--accent-blue);
-    }
-
-    .btn-wsp-head {
-      background-color: var(--accent-green);
-      color: #ffffff !important;
-      padding: 8px 16px;
-      border-radius: 6px;
-      font-weight: 700 !important;
-      transition: background 0.2s !important;
-    }
-
-    .btn-wsp-head:hover {
-      background-color: #059669;
-    }
-
-    /* HERO / BANNER PRINCIPAL */
-    .hero {
-      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
-      padding: 60px 20px;
-      text-align: center;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
-    .hero h1 {
-      font-size: 2.5rem;
-      color: var(--text-main);
-      margin-bottom: 15px;
-      font-weight: 800;
-    }
-
-    .hero h1 span {
-      color: var(--accent-blue);
-    }
-
-    .hero p {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      margin-bottom: 25px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn-primary {
-      background-color: #0284c7;
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: background 0.2s;
-    }
-
-    .btn-primary:hover {
-      background-color: #0369a1;
-    }
-
-    .btn-secondary {
-      background-color: var(--border-color);
-      color: var(--text-main);
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: background 0.2s;
-    }
-
-    .btn-secondary:hover {
-      background-color: #475569;
-    }
-
-    /* SECCIONES Y CONTENEDORES */
-    .seccion {
-      max-width: 1200px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-
-    .titulo-seccion {
-      font-size: 2rem;
-      color: var(--text-main);
-      margin-bottom: 8px;
-      font-weight: 800;
-    }
-
-    .subtitulo-seccion {
-      color: var(--text-muted);
-      margin-bottom: 30px;
-    }
-
-    /* TARJETAS DE SERVICIO TÉCNICO */
-    .grid-servicios {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-
-    .card-servicio {
-      background-color: var(--bg-tarjeta);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 25px;
-      text-align: center;
-      transition: border-color 0.2s;
-    }
-
-    .card-servicio:hover {
-      border-color: var(--accent-blue);
-    }
-
-    .icon-servicio {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-    }
-
-    .card-servicio h3 {
-      color: var(--accent-blue);
-      margin-bottom: 10px;
-    }
-
-    .card-servicio p {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    /* BARRA DE BÚSQUEDA Y FILTROS DE TIENDA */
-    .tienda-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 25px;
-    }
-
-    .buscador-box {
-      width: 100%;
-      max-width: 400px;
-    }
-
-    .buscador-box input {
-      width: 100%;
-      padding: 12px 16px;
-      background-color: var(--bg-tarjeta);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      color: var(--text-main);
-      font-size: 0.95rem;
-      outline: none;
-    }
-
-    .buscador-box input:focus {
-      border-color: var(--accent-blue);
-    }
-
-    .filtros-categorias {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .btn-cat {
-      background-color: var(--bg-tarjeta);
-      color: var(--text-muted);
-      border: 1px solid var(--border-color);
-      padding: 10px 18px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.9rem;
-      transition: all 0.2s ease;
-    }
-
-    .btn-cat:hover, .btn-cat.active {
-      background-color: #0284c7;
-      color: #ffffff;
-      border-color: var(--accent-blue);
-    }
-
-    /* GRILLA DE HARDWARE (MÁXIMO 12 TARJETAS POR PÁGINA) */
-    .grid-productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 25px;
-      min-height: 400px;
-    }
-
-    .card-producto {
-      background-color: var(--bg-tarjeta);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-
-    .card-producto:hover {
-      transform: translateY(-5px);
-      border-color: var(--accent-blue);
-    }
-
-    .img-container {
-      width: 100%;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: #ffffff;
-      border-radius: 8px;
-      margin-bottom: 14px;
-      padding: 10px;
-      overflow: hidden;
-    }
-
-    .img-container img {
-      max-width: 100%;
-      max-height: 100%;
+    .brand-img {
+      height: 32px;
+      width: auto;
       object-fit: contain;
+      filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(6, 182, 212, 0.4));
+      opacity: 0.85;
+      transition: all 0.3s ease;
+    }
+    .brand-img:hover {
+      opacity: 1;
+      transform: scale(1.1);
+      filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(6, 182, 212, 0.9));
     }
 
-    .badge-cat {
-      align-self: flex-start;
-      background-color: #0369a1;
-      color: #e0f2fe;
-      font-size: 0.75rem;
-      padding: 4px 8px;
-      border-radius: 4px;
-      margin-bottom: 10px;
-      text-transform: uppercase;
-      font-weight: 700;
+    .work-img {
+      width: 280px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 1rem;
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      transition: all 0.3s ease;
     }
-
-    .card-producto h3 {
-      font-size: 0.95rem;
-      color: #f1f5f9;
-      margin-bottom: 12px;
-      line-height: 1.4;
-      height: 2.8em;
-      overflow: hidden;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-    }
-
-    .precio {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: #4ade80;
-      margin-bottom: 14px;
-    }
-
-    .btn-comprar {
-      background-color: var(--accent-green);
-      color: #ffffff;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      width: 100%;
-      text-align: center;
-      transition: background 0.2s;
-    }
-
-    .btn-comprar:hover {
-      background-color: #059669;
-    }
-
-    /* PAGINACIÓN */
-    .paginacion-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 15px;
-      margin-top: 40px;
-    }
-
-    .btn-pag {
-      background-color: var(--border-color);
-      color: var(--text-main);
-      border: 1px solid #475569;
-      padding: 10px 22px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: all 0.2s;
-    }
-
-    .btn-pag:hover:not(:disabled) {
-      background-color: #0284c7;
-      border-color: var(--accent-blue);
-    }
-
-    .btn-pag:disabled {
-      opacity: 0.35;
-      cursor: not-allowed;
-    }
-
-    .info-pagina {
-      font-size: 1rem;
-      color: var(--text-muted);
-    }
-
-    .info-pagina strong {
-      color: var(--accent-blue);
-    }
-
-    .estado-mensaje {
-      grid-column: 1 / -1;
-      text-align: center;
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      padding: 60px 20px;
-    }
-
-    /* FOOTER */
-    footer {
-      background-color: var(--bg-tarjeta);
-      border-top: 1px solid var(--border-color);
-      padding: 40px 20px;
-      margin-top: 80px;
-      text-align: center;
-    }
-
-    footer p {
-      color: #64748b;
-      font-size: 0.95rem;
+    .work-img:hover {
+      transform: scale(1.05);
+      border-color: rgba(6, 182, 212, 0.8);
+      box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
     }
   </style>
 </head>
-<body>
+<body class="antialiased selection:bg-cyan-500 selection:text-black">
 
-  <!-- BARRA DE NAVEGACIÓN -->
-  <header>
-    <div class="nav-container">
-      <a href="#" class="logo">NOR<span>TECH</span></a>
-      <nav class="nav-menu">
-        <a href="#servicios">Servicios</a>
-        <a href="#catalogo">Catálogo Store</a>
-        <a href="https://wa.me/?text=Hola%20NORTECH!%20Tengo%20una%20consulta%20técnica" target="_blank" class="btn-wsp-head">📱 WhatsApp Directo</a>
+  <!-- Header Nav -->
+  <header class="fixed top-0 w-full z-50 glass-card border-b border-slate-800 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-full p-0.5 bg-gradient-to-tr from-cyan-500 to-blue-600 shadow-[0_0_15px_rgba(6,182,212,0.6)] group-hover:scale-105 transition overflow-hidden">
+          <img src="logo.png" alt="NORTECH Logo" class="w-full h-full object-cover rounded-full" />
+        </div>
+        <span class="text-2xl font-black font-orbitron tracking-widest text-white">
+          NOR<span class="text-cyan-400 text-glow">TECH</span>
+        </span>
+      </a>
+
+      <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-300">
+        <a href="#servicios" class="hover:text-cyan-400 transition">Servicios</a>
+        <a href="#trabajos" class="hover:text-cyan-400 transition">Trabajos Realizados</a>
+        <a href="#shop" class="hover:text-cyan-400 transition text-cyan-400 font-bold">🛒 Shop Online</a>
+        <a href="#pymes" class="hover:text-cyan-400 transition text-emerald-400 font-bold">🏢 Planes Pymes</a>
+        <a href="#nosotros" class="hover:text-cyan-400 transition">Nosotros</a>
+        <a href="#ubicacion" class="hover:text-cyan-400 transition">Ubicación</a>
       </nav>
+      
+      <div class="flex items-center gap-3">
+        <button onclick="toggleCartModal()" class="relative bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold px-4 py-2.5 rounded-full hover:shadow-[0_0_20px_rgba(6,182,212,0.5)] transition flex items-center gap-2 text-xs sm:text-sm">
+          <i class="fa-solid fa-cart-shopping"></i> <span class="hidden sm:inline">Carrito</span>
+          <span id="cart-count" class="bg-emerald-500 text-slate-950 text-xs px-2 py-0.5 rounded-full font-black">0</span>
+        </button>
+        <a href="https://wa.me/5491173607837" target="_blank" class="hidden sm:flex bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-full hover:shadow-[0_0_20px_rgba(37,211,102,0.5)] transition items-center gap-2 text-xs sm:text-sm">
+          <i class="fa-brands fa-whatsapp text-lg"></i> Consultar
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- HERO BANNER -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Servicio Técnico Especializado & <span>Hardware Store</span></h1>
-      <p>Reparación profesional de consolas (PS4, PS5, Nintendo Switch, Xbox), mantenimiento de Notebooks y catálogo de componentes de PC actualizados.</p>
-      <div class="hero-buttons">
-        <a href="#servicios" class="btn-primary">Solicitar Servicio Técnico</a>
-        <a href="#catalogo" class="btn-secondary">Explorar Componentes</a>
+  <!-- Hero Section -->
+  <section class="hero-bg min-h-screen pt-36 pb-16 px-6 flex items-center justify-center relative">
+    <div class="max-w-5xl mx-auto text-center" data-aos="zoom-in">
+      
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-cyan-400 text-xs font-bold tracking-widest uppercase border border-cyan-500/30">
+          📍 Munro & Zona Norte
+        </span>
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-extrabold tracking-widest uppercase border border-emerald-500/40 shadow-[0_0_15px_rgba(37,211,102,0.3)]">
+          🛡️ Garantía Escrita Extendida
+        </span>
+      </div>
+
+      <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-orbitron text-white mb-6 leading-tight">
+        SOLUCIONES TÉCNICAS <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-glow">DE ALTA PRECISIÓN</span>
+      </h1>
+      <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 font-light">
+        Laboratorio especializado en mantenimiento informático, diagnóstico de PC, consolas de videojuegos, notebooks gamer, recuperación de datos y venta de componentes en Munro.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-5">
+        <a href="#servicios" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold px-8 py-4 rounded-xl text-lg shadow-lg shadow-cyan-500/30 hover:scale-105 transition flex items-center justify-center gap-3">
+          <i class="fa-solid fa-gears"></i> Ver Todos los Servicios
+        </a>
+        <a href="#shop" class="glass-card text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/10 font-bold px-8 py-4 rounded-xl text-lg transition flex items-center justify-center gap-2">
+          <i class="fa-solid fa-store"></i> Shop Online
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN SERVICIO TÉCNICO -->
-  <section id="servicios" class="seccion">
-    <h2 class="titulo-seccion">Servicio Técnico Especializado</h2>
-    <p class="subtitulo-seccion">Mantenimiento preventivo, diagnósticos de precisión y reparación de hardware</p>
+  <!-- Carrusel de Logos -->
+  <section id="marcas" class="py-12 bg-slate-950/90 border-y border-slate-800/80 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-6 text-center">
+      <p class="text-xs font-bold text-slate-400 tracking-widest uppercase">Especialistas en la Importación y Soporte de Marcas Líderes</p>
+    </div>
+    <div class="relative w-full overflow-hidden">
+      <div class="slider-track items-center gap-12 md:gap-16">
+        <img src="https://cdn.simpleicons.org/nvidia" class="brand-img" alt="NVIDIA" />
+        <img src="https://cdn.simpleicons.org/amd" class="brand-img" alt="AMD" />
+        <img src="https://cdn.simpleicons.org/intel" class="brand-img" alt="Intel" />
+        <img src="https://cdn.simpleicons.org/apple" class="brand-img" alt="Apple" />
+        <img src="https://cdn.simpleicons.org/playstation" class="brand-img" alt="PlayStation" />
+        <img src="https://cdn.simpleicons.org/xbox" class="brand-img" alt="Xbox" />
+        <img src="https://cdn.simpleicons.org/asus" class="brand-img" alt="ASUS" />
+        <img src="https://cdn.simpleicons.org/hp" class="brand-img" alt="HP" />
+        <img src="https://cdn.simpleicons.org/lenovo" class="brand-img" alt="Lenovo" />
+        <img src="https://cdn.simpleicons.org/dell" class="brand-img" alt="Dell" />
 
-    <div class="grid-servicios">
-      <div class="card-servicio">
-        <div class="icon-servicio">🎮</div>
-        <h3>Consolas de Videojuegos</h3>
-        <p>Mantenimiento profundo, cambio de pasta térmica (Metal Líquido), reparación de puerto HDMI, fuentes y lecturas en PS4, PS5, Nintendo Switch y Xbox.</p>
-      </div>
-
-      <div class="card-servicio">
-        <div class="icon-servicio">💻</div>
-        <h3>Notebooks & Computadoras</h3>
-        <p>Optimización completa, formateo, reballing, cambio de módulos RAM, unidades SSD ultra rápidas, reparación de bisagras y pantallas.</p>
-      </div>
-
-      <div class="card-servicio">
-        <div class="icon-servicio">🖥️</div>
-        <h3>Armado de PCs Personalizadas</h3>
-        <p>Asesoramiento y ensamblado profesional para PCs Gamer, Streamer o Estaciones de Trabajo adaptadas a tu presupuesto.</p>
+        <img src="https://cdn.simpleicons.org/nvidia" class="brand-img" alt="NVIDIA" />
+        <img src="https://cdn.simpleicons.org/amd" class="brand-img" alt="AMD" />
+        <img src="https://cdn.simpleicons.org/intel" class="brand-img" alt="Intel" />
+        <img src="https://cdn.simpleicons.org/apple" class="brand-img" alt="Apple" />
+        <img src="https://cdn.simpleicons.org/playstation" class="brand-img" alt="PlayStation" />
+        <img src="https://cdn.simpleicons.org/xbox" class="brand-img" alt="Xbox" />
+        <img src="https://cdn.simpleicons.org/asus" class="brand-img" alt="ASUS" />
+        <img src="https://cdn.simpleicons.org/hp" class="brand-img" alt="HP" />
+        <img src="https://cdn.simpleicons.org/lenovo" class="brand-img" alt="Lenovo" />
+        <img src="https://cdn.simpleicons.org/dell" class="brand-img" alt="Dell" />
       </div>
     </div>
   </section>
 
-  <!-- SECCIÓN CATÁLOGO STORE -->
-  <section id="catalogo" class="seccion">
-    <div class="tienda-header">
-      <div>
-        <h2 class="titulo-seccion">Catálogo de Componentes</h2>
-        <p class="subtitulo-seccion" style="margin-bottom: 0;">Stock real y directo con recargo transparente de 15%</p>
+  <!-- CARRUSEL DE TRABAJOS REALIZADOS -->
+  <section id="trabajos" class="py-16 bg-slate-950 border-b border-slate-800 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
+      <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Galería de Laboratorio</span>
+      <h2 class="text-2xl sm:text-4xl font-black font-orbitron text-white mt-1">TRABAJOS REALIZADOS EN NUESTRO TALLER</h2>
+    </div>
+    <div class="relative w-full overflow-hidden">
+      <div class="slider-track items-center gap-6">
+        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Procesador y Socket" />
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa Madre Circuito" />
+        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Armado de PC por dentro" />
+        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa de Video GPU" />
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Infraestructura Redes y Servidores" />
+
+        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Procesador y Socket" />
+        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa Madre Circuito" />
+        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Armado de PC por dentro" />
+        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa de Video GPU" />
+        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Infraestructura Redes y Servidores" />
       </div>
-
-      <!-- BUSCADOR EN TIEMPO REAL -->
-      <div class="buscador-box">
-        <input type="text" id="input-busqueda" placeholder="Buscar componente (ej: Ryzen, RTX, SSD 1TB)..." oninput="buscarProductos()">
-      </div>
     </div>
-
-    <!-- BOTONES DE CATEGORÍA -->
-    <div class="filtros-categorias">
-      <button class="btn-cat active" onclick="filtrarPorCategoria('todos', this)">Todos</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('pcs-armadas', this)">💻 PCs Armadas</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('procesadores', this)">Procesadores</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('gpus', this)">Placas de Video</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('motherboards', this)">Motherboards</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('ram', this)">Memorias RAM</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('almacenamiento', this)">Almacenamiento</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('fuentes', this)">Fuentes</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('gabinetes', this)">Gabinetes</button>
-      <button class="btn-cat" onclick="filtrarPorCategoria('perifericos', this)">Periféricos / Varios</button>
-    </div>
-
-    <!-- GRILLA DE PRODUCTOS (12 POR PÁGINA) -->
-    <div id="contenedor-productos" class="grid-productos">
-      <div class="estado-mensaje">Cargando catálogo en vivo de NORTECH...</div>
-    </div>
-
-    <!-- PAGINACIÓN -->
-    <div id="paginacion-container"></div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <p>&copy; NORTECH Servicio Técnico & Hardware Store. Todos los derechos reservados.</p>
-  </footer>
+  <!-- CATÁLOGO DE SERVICIOS -->
+  <section id="servicios" class="py-24 px-6 relative bg-slate-950">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Laboratorio Técnico Integral</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-4">NUESTROS SERVICIOS ESPECIALIZADOS</h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto">Diagnóstico preciso, repuestos calificados y garantía escrita en cada trabajo.</p>
+        <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full mt-4"></div>
+      </div>
 
-  <!-- LÓGICA JAVASCRIPT CONECTADA A RENDER -->
-  <script>
-    let todosLosProductos = [];
-    let productosFiltrados = [];
-    let paginaActual = 1;
-    const productosPorPagina = 12;
-    let categoriaSeleccionada = 'todos';
-
-    const contenedorProductos = document.getElementById('contenedor-productos');
-    const contenedorPaginacion = document.getElementById('paginacion-container');
-
-    // CONEXIÓN CON RENDER
-    fetch('https://nortech-backend.onrender.com/api/componentes')
-      .then(res => {
-        if (!res.ok) throw new Error('Error al conectar con la API');
-        return res.json();
-      })
-      .then(data => {
-        // Excluimos promociones secundarias ("AHORRA $...")
-        todosLosProductos = data.filter(p => p.category !== 'descuentos');
-        productosFiltrados = [...todosLosProductos];
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         
-        renderizarPagina(1);
-      })
-      .catch(err => {
-        console.error('Error:', err);
-        contenedorProductos.innerHTML = '<div class="estado-mensaje">Ocurrió un problema al cargar el catálogo. Por favor reintenta en unos instantes.</div>';
-      });
-
-    // RENDERIZAR MÁXIMO 12 TARJETAS
-    function renderizarPagina(pagina) {
-      paginaActual = pagina;
-      contenedorProductos.innerHTML = '';
-
-      const inicio = (pagina - 1) * productosPorPagina;
-      const fin = inicio + productosPorPagina;
-      const productosVisibles = productosFiltrados.slice(inicio, fin);
-
-      if (productosVisibles.length === 0) {
-        contenedorProductos.innerHTML = '<div class="estado-mensaje">No se encontraron productos en esta sección.</div>';
-        contenedorPaginacion.innerHTML = '';
-        return;
-      }
-
-      productosVisibles.forEach(prod => {
-        contenedorProductos.innerHTML += `
-          <div class="card-producto">
-            <div>
-              <div class="img-container">
-                <img src="${prod.img}" alt="${prod.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/200?text=Sin+Imagen'">
+        <div class="glass-card p-8 rounded-2xl transition duration-500 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-cyan-500/10 border border-cyan-500/30 rounded-xl flex items-center justify-center text-cyan-400 text-xl">
+                <i class="fa-solid fa-laptop"></i>
               </div>
-              <span class="badge-cat">${formatearNombreCategoria(prod.category)}</span>
-              <h3>${prod.name}</h3>
+              <span class="bg-cyan-500/20 text-cyan-300 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">POPULAR</span>
             </div>
-            <div>
-              <p class="precio">$${prod.price.toLocaleString('es-AR')}</p>
-              <button class="btn-comprar" onclick="consultarProducto('${prod.name}', ${prod.price})">Consultar por WhatsApp</button>
+            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Notebooks Gamer & Pro</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Pantallas, teclados, motherboards y upgrades SSD/RAM. Repuestos originales y garantía extendida.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Pantallas</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Teclados</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Motherboards</span>
             </div>
           </div>
-        `;
-      });
+          <button onclick="quoteService('Reparación de Notebooks Gamer y Pro')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-xs border border-cyan-500/30">
+            <i class="fa-brands fa-whatsapp text-base"></i> Consultar
+          </button>
+        </div>
 
-      dibujarPaginador();
+        <div class="glass-card p-8 rounded-2xl transition duration-500 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-slate-700/30 border border-slate-600 rounded-xl flex items-center justify-center text-white text-xl">
+                <i class="fa-brands fa-apple"></i>
+              </div>
+              <span class="bg-slate-800 text-slate-300 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">APPLE</span>
+            </div>
+            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Mac, iMac, MacBooks</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Limpieza, SSD/RAM y reparación avanzada de Logic Boards. Solución definitiva a sobrecalentamiento y fallas complejas.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Limpieza</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">SSD/RAM</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Logic Boards</span>
+            </div>
+          </div>
+          <button onclick="quoteService('Reparación de Mac, iMac, MacBooks')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-xs border border-cyan-500/30">
+            <i class="fa-brands fa-whatsapp text-base"></i> Consultar
+          </button>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl transition duration-500 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="w-12 h-12 bg-cyan-500/10 border border-cyan-500/30 rounded-xl flex items-center justify-center text-cyan-400 text-xl mb-4">
+              <i class="fa-solid fa-hard-drive"></i>
+            </div>
+            <h3 class="text-xl font-bold font-orbitron text-white mb-2">GPU & Motherboards</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Reparación y mantenimiento preventivo de placas de video (NVIDIA/AMD) y placas madre de escritorio.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">NVIDIA</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">AMD</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Motherboards</span>
+            </div>
+          </div>
+          <button onclick="quoteService('Reparación de GPU y Motherboards')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-xs border border-cyan-500/30">
+            <i class="fa-brands fa-whatsapp text-base"></i> Consultar
+          </button>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl transition duration-500 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/30 rounded-xl flex items-center justify-center text-blue-400 text-xl mb-4">
+              <i class="fa-solid fa-desktop"></i>
+            </div>
+            <h3 class="text-xl font-bold font-orbitron text-white mb-2">PC de Escritorio</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Fuentes, motherboards, NVMe y clonado directo. Optimización total para gaming, streaming y alta productividad.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Fuentes</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">NVMe</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Clonado</span>
+            </div>
+          </div>
+          <button onclick="quoteService('Reparación de PC de Escritorio')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-xs border border-cyan-500/30">
+            <i class="fa-brands fa-whatsapp text-base"></i> Consultar
+          </button>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl transition duration-500 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="w-12 h-12 bg-teal-500/10 border border-teal-500/30 rounded-xl flex items-center justify-center text-teal-400 text-xl mb-4">
+              <i class="fa-solid fa-temperature-arrow-down"></i>
+            </div>
+            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Mantenimiento Premium</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Limpieza profunda de placas, pasta térmica de competición y optimización de refrigeración profesional.
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Limpieza</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Pasta Térmica</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Refrigeración</span>
+            </div>
+          </div>
+          <button onclick="quoteService('Mantenimiento Premium')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-xs border border-cyan-500/30">
+            <i class="fa-brands fa-whatsapp text-base"></i> Consultar
+          </button>
+        </div>
+
+        <div class="glass-card p-8 rounded-2xl transition duration-500 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-xl flex items-center justify-center text-emerald-400 text-xl">
+                <i class="fa-solid fa-database"></i>
+              </div>
+              <span class="bg-emerald-500/20 text-emerald-300 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">EVALUACIÓN TÉCNICA</span>
+            </div>
+            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Recuperación de Datos</h3>
+            <p class="text-slate-400 text-xs leading-relaxed mb-4">
+              Extracción forense de discos rígidos, SSDs quemados, pendrives y celulares muertos. Si no recuperamos tus datos, no pagás. (No data, no fee).
+            </p>
+            <div class="flex flex-wrap gap-1.5 mb-6">
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">HDD/SSD</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Pendrives</span>
+              <span class="text-[10px] bg-slate-900 border border-slate-800 text-slate-300 px-2 py-0.5 rounded">Celulares</span>
+            </div>
+          </div>
+          <button onclick="quoteService('Recuperación Forense de Datos')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-bold py-3 rounded-xl transition flex items-center justify-center gap-2 text-xs border border-cyan-500/30">
+            <i class="fa-brands fa-whatsapp text-base"></i> Consultar
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="py-24 px-6 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-5xl mx-auto">
+      
+      <div class="glass-card p-8 md:p-12 rounded-3xl border border-slate-800 relative overflow-hidden" data-aos="fade-up">
+        <div class="absolute -right-10 -bottom-10 opacity-5 text-slate-100 text-9xl font-black font-orbitron pointer-events-none">30+</div>
+        
+        <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Laboratorio de Soporte en Zona Norte</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-6">TRAYECTORIA Y CONOCIMIENTO TÉCNICO</h2>
+        
+        <p class="text-slate-300 text-base leading-relaxed mb-6 font-light">
+          En <strong class="text-white">NORTECH</strong> contamos con más de 30 años de experiencia combinada en el sector informático y electrónico. Nuestro taller técnico especializado en <strong class="text-cyan-400">Munro (Vicente López)</strong> se consolida como el laboratorio de referencia para la reparación de computadoras, consolas de videojuegos PlayStation, Xbox y Nintendo, notebooks gamer, placas de video y equipos Apple en toda la Zona Norte de Buenos Aires.
+        </p>
+
+        <p class="text-slate-300 text-sm leading-relaxed mb-8 font-light">
+          Trabajamos con instrumental de laboratorio de alta precisión para diagnóstico electrónico, repuestos originales o homologados. Garantizamos soluciones definitivas para problemas de encendido, sobrecalentamiento, reemplazo de componentes, fallas de software, recuperación de datos e instalaciones de redes informáticas para particulares, comercios y Pymes con presupuesto sin cargo y garantía por escrito en cada intervención.
+        </p>
+
+        <div class="grid sm:grid-cols-3 gap-6 pt-8 border-t border-slate-800/80 text-center">
+          <div>
+            <p class="text-2xl font-black font-orbitron text-cyan-400">+30 Años</p>
+            <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Saber Técnico Combinado</p>
+          </div>
+          <div>
+            <p class="text-2xl font-black font-orbitron text-cyan-400">Munro</p>
+            <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Vicente López / Zona Norte</p>
+          </div>
+          <div>
+            <p class="text-2xl font-black font-orbitron text-cyan-400">Laboratorio</p>
+            <p class="text-xs text-slate-400 uppercase tracking-wider mt-1">Garantía Escrita 6 Meses</p>
+          </div>
+        </div>
+
+        <div class="mt-10 text-center">
+          <a href="https://wa.me/5491173607837" target="_blank" class="inline-flex items-center gap-3 bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black px-8 py-4 rounded-xl hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] transition">
+            <i class="fa-brands fa-whatsapp text-xl"></i> Hablar con nuestro Equipo Técnico
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PLANES PYMES -->
+  <section id="pymes" class="py-24 px-6 relative bg-slate-950 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-16" data-aos="fade-up">
+        <span class="text-emerald-400 font-bold text-xs tracking-widest uppercase">Mantenimiento Corporativo</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-4">SOPORTE TÉCNICO PARA PYMES</h2>
+        <p class="text-slate-400 max-w-2xl mx-auto text-sm">
+          Asegurá el funcionamiento continuo de las computadoras de tu empresa o negocio. Asistencia remota prioritaria, mantenimiento preventivo y soporte presencial.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8">
+        
+        <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="text-xs font-bold text-cyan-400 tracking-widest uppercase mb-2">Emprendedores / Locales</div>
+            <h3 class="text-2xl font-black font-orbitron text-white mb-4">PLAN INICIAL</h3>
+            <p class="text-slate-400 text-xs mb-6 leading-relaxed">Ideal para pequeños comercios y oficinas con hasta 5 equipos que buscan soporte rápido frente a imprevistos.</p>
+            
+            <ul class="space-y-3 text-xs text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Soporte Remoto Ilimitado (AnyDesk)</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Optimización de Software y Antivirus</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Mantenimiento Preventivo Semestral</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Atención de emergencias en menos de 24 hs</li>
+            </ul>
+          </div>
+          <button onclick="quotePyme('Plan Inicial (Hasta 5 PCs)')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Cotizar Plan Inicial
+          </button>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl border-2 border-emerald-500/80 shadow-[0_0_30px_rgba(37,211,102,0.2)] flex flex-col justify-between relative scale-105" data-aos="fade-up">
+          <span class="absolute -top-3 right-6 bg-emerald-500 text-slate-950 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">MÁS ELEGIDO</span>
+          <div>
+            <div class="text-xs font-bold text-emerald-400 tracking-widest uppercase mb-2">Pymes y Oficinas</div>
+            <h3 class="text-2xl font-black font-orbitron text-white mb-4">PLAN PRO PYME</h3>
+            <p class="text-slate-400 text-xs mb-6 leading-relaxed">Para empresas en crecimiento (6 a 15 computadoras) que necesitan la tranquilidad de una guardia técnica fluida.</p>
+            
+            <ul class="space-y-3 text-xs text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Todo lo incluido en Plan Inicial</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Visita presencial técnica mensual incluida</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Copias de seguridad de datos (Backups)</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Limpieza física interna y pasta térmica</li>
+            </ul>
+          </div>
+          <button onclick="quotePyme('Plan Pro Pyme (6 a 15 PCs)')" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/30">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Cotizar Plan Pro Pyme
+          </button>
+        </div>
+
+        <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between" data-aos="fade-up">
+          <div>
+            <div class="text-xs font-bold text-blue-400 tracking-widest uppercase mb-2">Empresas & Redes</div>
+            <h3 class="text-2xl font-black font-orbitron text-white mb-4">PLAN CORPORATIVO</h3>
+            <p class="text-slate-400 text-xs mb-6 leading-relaxed">Abono 100% a medida para infraestructuras con más de 15 equipos, servidores locales y redes complejas.</p>
+            
+            <ul class="space-y-3 text-xs text-slate-300 mb-8">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Asistencia Remota y Presencial Prioritaria</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Mantenimiento de Servidores y Redes</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Asesoramiento para renovación de Hardware</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> SLA y respuesta inmediata garantizada</li>
+            </ul>
+          </div>
+          <button onclick="quotePyme('Plan Corporativo (A medida)')" class="w-full bg-slate-800 hover:bg-cyan-500 hover:text-slate-950 text-white font-bold py-3.5 rounded-xl transition flex items-center justify-center gap-2">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Consultar Abono Corporativo
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP ONLINE -->
+  <section id="shop" class="py-24 px-6 bg-slate-900/40 relative border-t border-slate-800">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-10" data-aos="fade-up">
+        <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Catálogo Sincronizado</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-4">COMPONENTES DE PC</h2>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto">Precios y disponibilidad actualizados directamente del catálogo de componentes.</p>
+      </div>
+
+      <!-- Filtros -->
+      <div class="flex flex-wrap justify-center gap-2 mb-10" id="category-filters">
+        <button onclick="filterCategory('todos', this)" class="cat-btn active px-4 py-2 rounded-xl text-xs font-bold bg-cyan-500 text-slate-950 transition">Todos</button>
+        <button onclick="filterCategory('procesadores', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Procesadores</button>
+        <button onclick="filterCategory('gpus', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Placas de Video</button>
+        <button onclick="filterCategory('motherboards', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Motherboards</button>
+        <button onclick="filterCategory('ram', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Memorias RAM</button>
+        <button onclick="filterCategory('almacenamiento', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Discos & SSD</button>
+        <button onclick="filterCategory('fuentes', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Fuentes</button>
+        <button onclick="filterCategory('gabinetes', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Gabinetes</button>
+      </div>
+
+      <!-- Grilla de Productos -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="products-grid">
+        <!-- Carga dinámicamente -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MODAL CARRITO -->
+  <div id="cart-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+    <div class="glass-card w-full max-w-lg p-6 rounded-3xl border border-cyan-500/40 relative flex flex-col max-h-[90vh]">
+      <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
+        <h3 class="text-xl font-bold font-orbitron text-white flex items-center gap-2">
+          <i class="fa-solid fa-cart-shopping text-cyan-400"></i> Tu Carrito de Compras
+        </h3>
+        <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div id="cart-items" class="overflow-y-auto space-y-3 my-4 pr-2 flex-grow">
+        <!-- Items agregados -->
+      </div>
+
+      <div class="border-t border-slate-800 pt-4 mt-auto">
+        <div class="flex justify-between text-lg font-bold text-white mb-4">
+          <span>Total Estimado:</span>
+          <span id="cart-total" class="text-cyan-400">$0</span>
+        </div>
+        <button onclick="sendCartToWhatsApp()" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black py-4 rounded-xl hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-2xl"></i> Enviar Pedido por WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- UBICACIÓN EN MUNRO -->
+  <section id="ubicacion" class="py-20 px-6 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto">
+      
+      <div class="text-center mb-12">
+        <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Atención Presencial</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2">VISITANOS EN MUNRO</h2>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+        
+        <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between">
+          <div>
+            <h3 class="text-xl font-bold text-white mb-6 font-orbitron">Taller de Reparación & Asesoramiento</h3>
+            
+            <div class="space-y-6">
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-cyan-500/10 border border-cyan-500/30 rounded-xl flex items-center justify-center text-cyan-400 text-xl shrink-0">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Dirección</h4>
+                  <p class="text-slate-300 text-sm mt-1">Francisco Borges 4838, Munro, Buenos Aires</p>
+                  <p class="text-slate-500 text-xs mt-0.5">Zona Norte (Vicente López, San Isidro y alrededores)</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-emerald-500/10 border border-emerald-500/30 rounded-xl flex items-center justify-center text-emerald-400 text-xl shrink-0">
+                  <i class="fa-solid fa-clock"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Horarios de Atención</h4>
+                  <p class="text-slate-300 text-sm mt-1">Lunes a Sábado - Atención 24 hs (Consultas digitales)</p>
+                  <p class="text-slate-500 text-xs mt-0.5">Recepción presencial con coordinación previa</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/30 rounded-xl flex items-center justify-center text-blue-400 text-xl shrink-0">
+                  <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div>
+                  <h4 class="font-bold text-white text-sm">Garantía de Satisfacción</h4>
+                  <p class="text-slate-300 text-sm mt-1">Diagnóstico sin cargo y garantía escrita en cada trabajo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-slate-800">
+            <a href="https://wa.me/5491173607837" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20">
+              <i class="fa-brands fa-whatsapp text-2xl"></i> Hablar con un Técnico Ahora
+            </a>
+          </div>
+        </div>
+
+        <div class="glass-card p-3 rounded-3xl overflow-hidden min-h-[380px] border border-slate-800">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3288.082729739501!2d-58.5303681!3d-34.5261394!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcb0c46b1ed8ed%3A0x892a012ff175d68d!2sFrancisco%20Borges%204838%2C%20B1605ABC%20Munro%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+            width="100%" 
+            height="100%" 
+            style="border:0; filter: grayscale(0.8) invert(0.9) contrast(1.2);" 
+            allowfullscreen="" 
+            loading="lazy" 
+            class="rounded-2xl">
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-6 text-center text-slate-500 text-xs border-t border-slate-800">
+    <p>© 2026 NORTECH - Servicio técnico consolas y computadoras.</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 800, once: true });
+
+    const phone = "5491173607837";
+    const SCRAPER_API = "https://nortech-backend.onrender.com/api/componentes";
+
+    function quoteService(serviceName) {
+      const message = `👋 Hola NORTECH! Quisiera consultar un presupuesto para el servicio de: *${serviceName}*. ¿Me podrían indicar cómo coordinar? ¡Gracias!`;
+      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
     }
 
-    // NAVEGACIÓN ENTRE PÁGINAS
-    function dibujarPaginador() {
-      const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
-      
-      if (totalPaginas <= 1) {
-        contenedorPaginacion.innerHTML = '';
+    function quotePyme(planName) {
+      const message = `👋 Hola NORTECH! Me interesa contratar el servicio de mantenimiento mensual para mi negocio/empresa:%0A%0A` +
+                      `🏢 *Plan Consultado:* ${planName}%0A` +
+                      `🔧 *Servicios Requeridos:* Mantenimiento preventivo, soporte remoto e insumos.%0A%0A` +
+                      `¿Me podrían brindar más información y presupuesto? ¡Muchas gracias!`;
+
+      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
+    }
+
+    let allProducts = [];
+    let cart = [];
+    let currentCategory = 'todos';
+
+    async function loadMaximusProducts() {
+      const grid = document.getElementById('products-grid');
+      grid.innerHTML = `<div class="col-span-full text-center py-12"><i class="fa-solid fa-spinner fa-spin text-cyan-400 text-3xl mb-3"></i><p class="text-slate-400 text-sm">Cargando catálogo de componentes...</p></div>`;
+
+      try {
+        const response = await fetch(SCRAPER_API);
+        allProducts = await response.json();
+        renderFilteredProducts();
+      } catch (err) {
+        grid.innerHTML = `<div class="col-span-full text-center py-12 text-red-400"><i class="fa-solid fa-triangle-exclamation text-3xl mb-2"></i><p>No se pudieron consultar los componentes. Por favor contactanos por WhatsApp.</p></div>`;
+      }
+    }
+
+    function renderFilteredProducts() {
+      const grid = document.getElementById('products-grid');
+      const items = currentCategory === 'todos' 
+        ? allProducts 
+        : allProducts.filter(p => p.category === currentCategory);
+
+      if (items.length === 0) {
+        grid.innerHTML = `<p class="text-slate-500 text-center col-span-full py-10">No hay productos disponibles en esta categoría actualmente.</p>`;
         return;
       }
 
-      contenedorPaginacion.innerHTML = `
-        <div class="paginacion-wrapper">
-          <button class="btn-pag" onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? 'disabled' : ''}>
-            &laquo; Anterior
-          </button>
-          <span class="info-pagina">Página <strong>${paginaActual}</strong> de ${totalPaginas}</span>
-          <button class="btn-pag" onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? 'disabled' : ''}>
-            Siguiente &raquo;
+      const fallbackSvg = "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%2306b6d4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><rect x='2' y='2' width='20' height='8' rx='2' ry='2'></rect><rect x='2' y='14' width='20' height='8' rx='2' ry='2'></rect><line x1='6' y1='6' x2='6.01' y2='6'></line><line x1='6' y1='18' x2='6.01' y2='18'></line></svg>";
+
+      grid.innerHTML = items.map(p => `
+        <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-cyan-500/50 transition">
+          <div class="relative overflow-hidden rounded-xl mb-4 bg-slate-900/90 border border-slate-800 h-44 flex items-center justify-center p-3">
+            <img src="${p.img}" alt="${p.name}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null;this.src='${fallbackSvg}';">
+          </div>
+          <div>
+            <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block mb-1">${p.category}</span>
+            <h4 class="font-bold text-white text-xs leading-snug mb-3 line-clamp-2" title="${p.name}">${p.name}</h4>
+            <p class="text-cyan-400 font-black text-xl mb-4">$${p.price.toLocaleString('es-AR')}</p>
+          </div>
+          <button onclick="addToCart(${p.id})" class="w-full bg-cyan-500/10 hover:bg-cyan-500 hover:text-slate-950 text-cyan-400 font-extrabold py-2.5 rounded-xl border border-cyan-500/30 transition flex items-center justify-center gap-2 text-xs">
+            <i class="fa-solid fa-cart-plus"></i> Agregar al Carrito
           </button>
         </div>
-      `;
+      `).join('');
     }
 
-    function cambiarPagina(nuevaPagina) {
-      const totalPaginas = Math.ceil(productosFiltrados.length / productosPorPagina);
-      if (nuevaPagina >= 1 && nuevaPagina <= totalPaginas) {
-        renderizarPagina(nuevaPagina);
-        contenedorProductos.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }
-
-    // FILTRADO Y BUSCADOR
-    function filtrarPorCategoria(categoria, boton) {
-      categoriaSeleccionada = categoria;
-      document.querySelectorAll('.btn-cat').forEach(b => b.classList.remove('active'));
-      if (boton) boton.classList.add('active');
-
-      document.getElementById('input-busqueda').value = '';
-      aplicarFiltros();
-    }
-
-    function buscarProductos() {
-      aplicarFiltros();
-    }
-
-    function aplicarFiltros() {
-      const textoBusqueda = document.getElementById('input-busqueda').value.toLowerCase().trim();
-
-      productosFiltrados = todosLosProductos.filter(prod => {
-        const coincideCategoria = (categoriaSeleccionada === 'todos') || (prod.category === categoriaSeleccionada);
-        const coincideBusqueda = prod.name.toLowerCase().includes(textoBusqueda);
-        return coincideCategoria && coincideBusqueda;
+    function filterCategory(cat, element) {
+      currentCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        btn.classList.remove('bg-cyan-500', 'text-slate-950', 'active');
+        btn.classList.add('glass-card', 'text-slate-300');
       });
-
-      renderizarPagina(1);
+      element.classList.remove('glass-card', 'text-slate-300');
+      element.classList.add('bg-cyan-500', 'text-slate-950', 'active');
+      renderFilteredProducts();
     }
 
-    function formatearNombreCategoria(cat) {
-      const nombres = {
-        'pcs-armadas': 'PC Armada',
-        'procesadores': 'Procesador',
-        'gpus': 'Placa de Video',
-        'motherboards': 'Motherboard',
-        'ram': 'Memoria RAM',
-        'almacenamiento': 'Almacenamiento',
-        'fuentes': 'Fuente',
-        'gabinetes': 'Gabinete',
-        'perifericos': 'Periféricos / Varios'
-      };
-      return nombres[cat] || 'Componente';
+    function addToCart(id) {
+      const prod = allProducts.find(p => p.id === id);
+      const item = cart.find(c => c.id === id);
+      if(item) {
+        item.qty++;
+      } else {
+        cart.push({...prod, qty: 1});
+      }
+      updateCartUI();
     }
 
-    function consultarProducto(nombreProd, precio) {
-      const mensaje = encodeURIComponent(`Hola NORTECH! Quisiera consultar por el producto: "${nombreProd}" ($${precio.toLocaleString('es-AR')}).`);
-      window.open(`https://wa.me/?text=${mensaje}`, '_blank');
+    function removeFromCart(id) {
+      cart = cart.filter(c => c.id !== id);
+      updateCartUI();
     }
+
+    function updateCartUI() {
+      const count = cart.reduce((acc, item) => acc + item.qty, 0);
+      document.getElementById('cart-count').innerText = count;
+
+      const itemsContainer = document.getElementById('cart-items');
+      if(cart.length === 0) {
+        itemsContainer.innerHTML = `<p class="text-slate-500 text-center py-6 text-sm">El carrito está vacío.</p>`;
+      } else {
+        itemsContainer.innerHTML = cart.map(item => `
+          <div class="flex justify-between items-center bg-slate-900/80 p-3 rounded-xl border border-slate-800 text-xs">
+            <div>
+              <p class="font-bold text-white">${item.name}</p>
+              <p class="text-cyan-400">$${item.price.toLocaleString('es-AR')} x ${item.qty}</p>
+            </div>
+            <button onclick="removeFromCart(${item.id})" class="text-red-400 hover:text-red-300 p-2"><i class="fa-solid fa-trash"></i></button>
+          </div>
+        `).join('');
+      }
+
+      const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      document.getElementById('cart-total').innerText = `$${total.toLocaleString('es-AR')}`;
+    }
+
+    function toggleCartModal() {
+      document.getElementById('cart-modal').classList.toggle('hidden');
+    }
+
+    function sendCartToWhatsApp() {
+      if(cart.length === 0) return alert('Agregá al menos un producto al carrito');
+      let msg = `👋 ¡Hola NORTECH! Quiero realizar el siguiente pedido desde la web:%0A%0A`;
+      cart.forEach(item => {
+        msg += `• *${item.name}* (x${item.qty}) - $${(item.price * item.qty).toLocaleString('es-AR')}%0A`;
+      });
+      const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+      msg += `%0A💰 *Total Estimado:* $${total.toLocaleString('es-AR')}%0A%0A¿Tienen stock para coordinar retiro o envío?`;
+      window.open(`https://wa.me/${phone}?text=${msg}`, '_blank');
+    }
+
+    window.addEventListener('DOMContentLoaded', loadMaximusProducts);
   </script>
 </body>
 </html>
