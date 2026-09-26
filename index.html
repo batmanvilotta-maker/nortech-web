@@ -131,6 +131,31 @@
       border-color: rgba(6, 182, 212, 0.8);
       box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
     }
+
+    .brand-icon {
+      font-size: 32px;
+      line-height: 32px;
+      color: #fff;
+      opacity: 0.85;
+      filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.4));
+      transition: all 0.3s ease;
+    }
+    .brand-icon:hover { opacity: 1; transform: scale(1.1); filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.9)); }
+
+    /* Mientras carga la foto de un producto (vienen del proveedor y a veces tardan) */
+    .img-cargando {
+      background: linear-gradient(90deg, rgba(30,41,59,0.7) 25%, rgba(51,65,85,0.7) 50%, rgba(30,41,59,0.7) 75%);
+      background-size: 200% 100%;
+      animation: brillo 1.2s linear infinite;
+    }
+    @keyframes brillo { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+    .campo {
+      width: 100%; padding: 0.75rem 1rem; border-radius: 0.75rem; font-size: 0.875rem; color: #fff;
+      background: rgba(15, 23, 42, 0.75); border: 1px solid rgba(255, 255, 255, 0.08); outline: none;
+    }
+    .campo:focus { border-color: rgba(6, 182, 212, 0.7); }
+    .campo option { background: #0f172a; }
   </style>
 </head>
 <body class="antialiased selection:bg-cyan-500 selection:text-black">
@@ -150,7 +175,7 @@
 
       <nav class="hidden md:flex space-x-6 text-sm font-semibold text-slate-300">
         <a href="#servicios" class="hover:text-cyan-400 transition">Servicios</a>
-        <a href="#trabajos" class="hover:text-cyan-400 transition">Trabajos Realizados</a>
+        <a href="#presupuesto" class="hover:text-cyan-400 transition">Presupuesto</a>
         <a href="#shop" class="hover:text-cyan-400 transition text-cyan-400 font-bold">🛒 Shop Online</a>
         <a href="#pymes" class="hover:text-cyan-400 transition text-emerald-400 font-bold">🏢 Planes Pymes</a>
         <a href="#nosotros" class="hover:text-cyan-400 transition">Nosotros</a>
@@ -166,8 +191,22 @@
         <a href="https://wa.me/5491178176640" target="_blank" class="hidden sm:flex bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-extrabold px-5 py-2.5 rounded-full hover:shadow-[0_0_20px_rgba(37,211,102,0.5)] transition items-center gap-2 text-xs sm:text-sm">
           <i class="fa-brands fa-whatsapp text-lg"></i> Consultar
         </a>
+        <button id="menu-btn" onclick="toggleMenu()" class="md:hidden w-10 h-10 rounded-full glass-card text-white text-lg flex items-center justify-center" aria-label="Abrir menú" aria-expanded="false">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
+
+    <!-- Menú del celu -->
+    <nav id="menu-movil" class="md:hidden hidden max-w-7xl mx-auto mt-4 pt-3 border-t border-slate-800 gap-1 text-base font-semibold text-slate-200">
+      <a href="#servicios" class="py-3 px-3 rounded-xl hover:bg-slate-800/70">Servicios</a>
+      <a href="#presupuesto" class="py-3 px-3 rounded-xl hover:bg-slate-800/70">Pedir presupuesto</a>
+      <a href="#shop" class="py-3 px-3 rounded-xl hover:bg-slate-800/70 text-cyan-400">🛒 Shop Online</a>
+      <a href="#pymes" class="py-3 px-3 rounded-xl hover:bg-slate-800/70 text-emerald-400">🏢 Planes Pymes</a>
+      <a href="#nosotros" class="py-3 px-3 rounded-xl hover:bg-slate-800/70">Nosotros</a>
+      <a href="#preguntas-frecuentes" class="py-3 px-3 rounded-xl hover:bg-slate-800/70">Preguntas frecuentes</a>
+      <a href="#ubicacion" class="py-3 px-3 rounded-xl hover:bg-slate-800/70">Ubicación</a>
+    </nav>
   </header>
 
   <!-- Hero Section -->
@@ -179,20 +218,20 @@
           📍 Munro & Zona Norte
         </span>
         <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-extrabold tracking-widest uppercase border border-emerald-500/40 shadow-[0_0_15px_rgba(37,211,102,0.3)]">
-          🛡️ Garantía Escrita Extendida
+          🛡️ Garantía escrita 6 meses
         </span>
       </div>
 
       <h1 class="text-4xl sm:text-6xl md:text-7xl font-black font-orbitron text-white mb-6 leading-tight">
-        SOLUCIONES TÉCNICAS <br/>
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-glow">DE ALTA PRECISIÓN</span>
+        REPARAMOS TU PC, NOTEBOOK O CONSOLA <br/>
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-glow">EN MUNRO</span>
       </h1>
       <p class="text-slate-300 text-lg md:text-xl max-w-3xl mx-auto mb-10 font-light">
-        Laboratorio especializado en mantenimiento informático, diagnóstico de PC, consolas de videojuegos, notebooks gamer, recuperación de datos y venta de componentes en Munro.
+        Diagnóstico y presupuesto sin cargo, garantía escrita de 6 meses y más de 30 años de experiencia combinada. PC, notebooks, Mac, consolas, placas de video y recuperación de datos.
       </p>
       <div class="flex flex-col sm:flex-row justify-center gap-5">
-        <a href="#servicios" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold px-8 py-4 rounded-xl text-lg shadow-lg shadow-cyan-500/30 hover:scale-105 transition flex items-center justify-center gap-3">
-          <i class="fa-solid fa-gears"></i> Ver Todos los Servicios
+        <a href="#presupuesto" class="bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-extrabold px-8 py-4 rounded-xl text-lg shadow-lg shadow-cyan-500/30 hover:scale-105 transition flex items-center justify-center gap-3">
+          <i class="fa-solid fa-screwdriver-wrench"></i> Pedir Presupuesto
         </a>
         <a href="#shop" class="glass-card text-cyan-400 border border-cyan-500/30 hover:bg-cyan-500/10 font-bold px-8 py-4 rounded-xl text-lg transition flex items-center justify-center gap-2">
           <i class="fa-solid fa-store"></i> Shop Online
@@ -213,7 +252,7 @@
         <img src="https://cdn.simpleicons.org/intel" class="brand-img" alt="Intel" />
         <img src="https://cdn.simpleicons.org/apple" class="brand-img" alt="Apple" />
         <img src="https://cdn.simpleicons.org/playstation" class="brand-img" alt="PlayStation" />
-        <img src="https://cdn.simpleicons.org/xbox" class="brand-img" alt="Xbox" />
+        <i class="fa-brands fa-xbox brand-icon" role="img" aria-label="Xbox"></i>
         <img src="https://cdn.simpleicons.org/asus" class="brand-img" alt="ASUS" />
         <img src="https://cdn.simpleicons.org/hp" class="brand-img" alt="HP" />
         <img src="https://cdn.simpleicons.org/lenovo" class="brand-img" alt="Lenovo" />
@@ -224,34 +263,11 @@
         <img src="https://cdn.simpleicons.org/intel" class="brand-img" alt="Intel" />
         <img src="https://cdn.simpleicons.org/apple" class="brand-img" alt="Apple" />
         <img src="https://cdn.simpleicons.org/playstation" class="brand-img" alt="PlayStation" />
-        <img src="https://cdn.simpleicons.org/xbox" class="brand-img" alt="Xbox" />
+        <i class="fa-brands fa-xbox brand-icon" role="img" aria-label="Xbox"></i>
         <img src="https://cdn.simpleicons.org/asus" class="brand-img" alt="ASUS" />
         <img src="https://cdn.simpleicons.org/hp" class="brand-img" alt="HP" />
         <img src="https://cdn.simpleicons.org/lenovo" class="brand-img" alt="Lenovo" />
         <img src="https://cdn.simpleicons.org/dell" class="brand-img" alt="Dell" />
-      </div>
-    </div>
-  </section>
-
-  <!-- CARRUSEL DE TRABAJOS REALIZADOS -->
-  <section id="trabajos" class="py-16 bg-slate-950 border-b border-slate-800 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6 mb-8 text-center">
-      <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Galería de Laboratorio</span>
-      <h2 class="text-2xl sm:text-4xl font-black font-orbitron text-white mt-1">TRABAJOS REALIZADOS EN NUESTRO TALLER</h2>
-    </div>
-    <div class="relative w-full overflow-hidden">
-      <div class="slider-track items-center gap-6">
-        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Procesador y Socket" />
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa Madre Circuito" />
-        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Armado de PC por dentro" />
-        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa de Video GPU" />
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Infraestructura Redes y Servidores" />
-
-        <img src="https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Procesador y Socket" />
-        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa Madre Circuito" />
-        <img src="https://images.unsplash.com/photo-1587202372775-e229f172b9d7?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Armado de PC por dentro" />
-        <img src="https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Placa de Video GPU" />
-        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" class="work-img" alt="Infraestructura Redes y Servidores" />
       </div>
     </div>
   </section>
@@ -262,7 +278,7 @@
       
       <div class="text-center mb-16" data-aos="fade-up">
         <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Laboratorio Técnico Integral</span>
-        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-4">NUESTROS SERVICIOS ESPECIALIZADOS</h2>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-2 mb-4">Nuestros servicios</h2>
         <p class="text-slate-400 text-sm max-w-xl mx-auto">Diagnóstico preciso, repuestos calificados y garantía escrita en cada trabajo.</p>
         <div class="w-24 h-1 bg-gradient-to-r from-cyan-500 to-blue-500 mx-auto rounded-full mt-4"></div>
       </div>
@@ -277,7 +293,7 @@
               </div>
               <span class="bg-cyan-500/20 text-cyan-300 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">POPULAR</span>
             </div>
-            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Notebooks Gamer & Pro</h3>
+            <h3 class="text-xl font-bold text-white mb-2">Notebooks Gamer & Pro</h3>
             <p class="text-slate-400 text-xs leading-relaxed mb-4">
               Pantallas, teclados, motherboards y upgrades SSD/RAM. Repuestos originales y garantía extendida.
             </p>
@@ -300,7 +316,7 @@
               </div>
               <span class="bg-slate-800 text-slate-300 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">APPLE</span>
             </div>
-            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Mac, iMac, MacBooks</h3>
+            <h3 class="text-xl font-bold text-white mb-2">Mac, iMac, MacBooks</h3>
             <p class="text-slate-400 text-xs leading-relaxed mb-4">
               Limpieza, SSD/RAM y reparación avanzada de Logic Boards. Solución definitiva a sobrecalentamiento y fallas complejas.
             </p>
@@ -320,7 +336,7 @@
             <div class="w-12 h-12 bg-cyan-500/10 border border-cyan-500/30 rounded-xl flex items-center justify-center text-cyan-400 text-xl mb-4">
               <i class="fa-solid fa-hard-drive"></i>
             </div>
-            <h3 class="text-xl font-bold font-orbitron text-white mb-2">GPU & Motherboards</h3>
+            <h3 class="text-xl font-bold text-white mb-2">GPU & Motherboards</h3>
             <p class="text-slate-400 text-xs leading-relaxed mb-4">
               Reparación y mantenimiento preventivo de placas de video (NVIDIA/AMD) y placas madre de escritorio.
             </p>
@@ -340,7 +356,7 @@
             <div class="w-12 h-12 bg-blue-500/10 border border-blue-500/30 rounded-xl flex items-center justify-center text-blue-400 text-xl mb-4">
               <i class="fa-solid fa-desktop"></i>
             </div>
-            <h3 class="text-xl font-bold font-orbitron text-white mb-2">PC de Escritorio</h3>
+            <h3 class="text-xl font-bold text-white mb-2">PC de Escritorio</h3>
             <p class="text-slate-400 text-xs leading-relaxed mb-4">
               Fuentes, motherboards, NVMe y clonado directo. Optimización total para gaming, streaming y alta productividad.
             </p>
@@ -360,7 +376,7 @@
             <div class="w-12 h-12 bg-teal-500/10 border border-teal-500/30 rounded-xl flex items-center justify-center text-teal-400 text-xl mb-4">
               <i class="fa-solid fa-temperature-arrow-down"></i>
             </div>
-            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Mantenimiento Premium</h3>
+            <h3 class="text-xl font-bold text-white mb-2">Mantenimiento Premium</h3>
             <p class="text-slate-400 text-xs leading-relaxed mb-4">
               Limpieza profunda de placas, pasta térmica de competición y optimización de refrigeración profesional.
             </p>
@@ -383,7 +399,7 @@
               </div>
               <span class="bg-emerald-500/20 text-emerald-300 text-[10px] font-black px-2.5 py-1 rounded-full uppercase">EVALUACIÓN TÉCNICA</span>
             </div>
-            <h3 class="text-xl font-bold font-orbitron text-white mb-2">Recuperación de Datos</h3>
+            <h3 class="text-xl font-bold text-white mb-2">Recuperación de Datos</h3>
             <p class="text-slate-400 text-xs leading-relaxed mb-4">
               Extracción forense de discos rígidos, SSDs quemados, pendrives y celulares muertos. Si no recuperamos tus datos, no pagás. (No data, no fee).
             </p>
@@ -402,6 +418,51 @@
     </div>
   </section>
 
+  <!-- PEDIR PRESUPUESTO -->
+  <section id="presupuesto" class="py-24 px-6 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center mb-10" data-aos="fade-up">
+        <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Diagnóstico sin cargo</span>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-2 mb-4">Pedí tu presupuesto</h2>
+        <p class="text-slate-400 text-sm">Contanos qué equipo es y qué le pasa. Se abre WhatsApp con el mensaje listo para mandar.</p>
+      </div>
+
+      <form id="form-presupuesto" onsubmit="enviarPresupuesto(event)" class="glass-card p-6 sm:p-8 rounded-3xl border border-slate-800 space-y-4" data-aos="fade-up">
+        <div class="grid sm:grid-cols-2 gap-4">
+          <label class="block">
+            <span class="text-xs font-bold text-slate-300">Equipo</span>
+            <select id="pres-equipo" class="campo mt-1" required>
+              <option value="">Elegí uno...</option>
+              <option>PC de escritorio</option>
+              <option>Notebook</option>
+              <option>Mac / MacBook / iMac</option>
+              <option>Consola (PlayStation, Xbox, Nintendo)</option>
+              <option>Placa de video</option>
+              <option>Disco / recuperación de datos</option>
+              <option>Otro</option>
+            </select>
+          </label>
+          <label class="block">
+            <span class="text-xs font-bold text-slate-300">Marca y modelo <span class="text-slate-500 font-normal">(si lo sabés)</span></span>
+            <input id="pres-modelo" type="text" class="campo mt-1" placeholder="Ej: Lenovo IdeaPad 3, PS5...">
+          </label>
+        </div>
+        <label class="block">
+          <span class="text-xs font-bold text-slate-300">¿Qué le pasa?</span>
+          <textarea id="pres-falla" rows="4" class="campo mt-1" required placeholder="Ej: no prende, se apaga sola jugando, hace mucho ruido, se cayó..."></textarea>
+        </label>
+        <label class="block">
+          <span class="text-xs font-bold text-slate-300">Tu nombre <span class="text-slate-500 font-normal">(opcional)</span></span>
+          <input id="pres-nombre" type="text" class="campo mt-1">
+        </label>
+        <button type="submit" class="w-full bg-gradient-to-r from-emerald-500 to-teal-400 text-slate-950 font-black py-4 rounded-xl hover:shadow-[0_0_20px_rgba(37,211,102,0.4)] transition flex items-center justify-center gap-2">
+          <i class="fa-brands fa-whatsapp text-2xl"></i> Enviar por WhatsApp
+        </button>
+        <p class="text-slate-500 text-xs text-center">Si tenés fotos del equipo o de la falla, mandalas en el mismo chat.</p>
+      </form>
+    </div>
+  </section>
+
   <!-- NOSOTROS -->
   <section id="nosotros" class="py-24 px-6 bg-slate-950 border-t border-slate-800">
     <div class="max-w-5xl mx-auto">
@@ -410,7 +471,7 @@
         <div class="absolute -right-10 -bottom-10 opacity-5 text-slate-100 text-9xl font-black font-orbitron pointer-events-none">30+</div>
         
         <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Laboratorio de Soporte en Zona Norte</span>
-        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-6">TRAYECTORIA Y CONOCIMIENTO TÉCNICO</h2>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-2 mb-6">Trayectoria y conocimiento técnico</h2>
         
         <p class="text-slate-300 text-base leading-relaxed mb-6 font-light">
           En <strong class="text-white">NORTECH</strong> contamos con más de 30 años de experiencia combinada en el sector informático y electrónico. Nuestro taller técnico especializado en <strong class="text-cyan-400">Munro (Vicente López)</strong> se consolida como el laboratorio de referencia para la reparación de computadoras, consolas de videojuegos PlayStation, Xbox y Nintendo, notebooks gamer, placas de video y equipos Apple en toda la Zona Norte de Buenos Aires.
@@ -452,7 +513,7 @@
       
       <div class="text-center mb-16" data-aos="fade-up">
         <span class="text-emerald-400 font-bold text-xs tracking-widest uppercase">Mantenimiento Corporativo</span>
-        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-4">SOPORTE TÉCNICO PARA PYMES</h2>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-2 mb-4">Soporte técnico para pymes</h2>
         <p class="text-slate-400 max-w-2xl mx-auto text-sm">
           Asegurá el funcionamiento continuo de las computadoras de tu empresa o negocio. Asistencia remota prioritaria, mantenimiento preventivo y soporte presencial.
         </p>
@@ -463,7 +524,7 @@
         <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between" data-aos="fade-up">
           <div>
             <div class="text-xs font-bold text-cyan-400 tracking-widest uppercase mb-2">Emprendedores / Locales</div>
-            <h3 class="text-2xl font-black font-orbitron text-white mb-4">PLAN INICIAL</h3>
+            <h3 class="text-2xl font-extrabold tracking-tight text-white mb-4">Plan Inicial</h3>
             <p class="text-slate-400 text-xs mb-6 leading-relaxed">Ideal para pequeños comercios y oficinas con hasta 5 equipos que buscan soporte rápido frente a imprevistos.</p>
             
             <ul class="space-y-3 text-xs text-slate-300 mb-8">
@@ -482,7 +543,7 @@
           <span class="absolute -top-3 right-6 bg-emerald-500 text-slate-950 text-[10px] font-black tracking-widest px-3 py-1 rounded-full uppercase">MÁS ELEGIDO</span>
           <div>
             <div class="text-xs font-bold text-emerald-400 tracking-widest uppercase mb-2">Pymes y Oficinas</div>
-            <h3 class="text-2xl font-black font-orbitron text-white mb-4">PLAN PRO PYME</h3>
+            <h3 class="text-2xl font-extrabold tracking-tight text-white mb-4">Plan Pro Pyme</h3>
             <p class="text-slate-400 text-xs mb-6 leading-relaxed">Para empresas en crecimiento (6 a 15 computadoras) que necesitan la tranquilidad de una guardia técnica fluida.</p>
             
             <ul class="space-y-3 text-xs text-slate-300 mb-8">
@@ -500,7 +561,7 @@
         <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between" data-aos="fade-up">
           <div>
             <div class="text-xs font-bold text-blue-400 tracking-widest uppercase mb-2">Empresas & Redes</div>
-            <h3 class="text-2xl font-black font-orbitron text-white mb-4">PLAN CORPORATIVO</h3>
+            <h3 class="text-2xl font-extrabold tracking-tight text-white mb-4">Plan Corporativo</h3>
             <p class="text-slate-400 text-xs mb-6 leading-relaxed">Abono 100% a medida para infraestructuras con más de 15 equipos, servidores locales y redes complejas.</p>
             
             <ul class="space-y-3 text-xs text-slate-300 mb-8">
@@ -525,17 +586,22 @@
       
       <div class="text-center mb-10" data-aos="fade-up">
         <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Catálogo Sincronizado</span>
-        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-4">COMPONENTES DE PC</h2>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-2 mb-4">Componentes de PC</h2>
         <p class="text-slate-400 text-sm max-w-xl mx-auto">Procesadores, placas de video, motherboards, memorias, SSD, fuentes, gabinetes, monitores y PCs armadas. Solo productos con stock, con precios actualizados todos los días.</p>
       </div>
 
       <!-- Buscador -->
-      <div class="max-w-xl mx-auto mb-6">
-        <div class="relative">
+      <div class="max-w-2xl mx-auto mb-6 flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-grow">
           <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
           <input id="buscador" type="search" placeholder="Buscar: Ryzen 5, RTX 4060, SSD 1TB, fuente 650W..." autocomplete="off"
                  class="w-full pl-11 pr-4 py-3 rounded-xl glass-card text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-500">
         </div>
+        <select id="orden" onchange="currentPage = 1; renderFilteredProducts();" class="campo sm:w-48" aria-label="Ordenar productos">
+          <option value="">Ordenar: destacados</option>
+          <option value="menor">Menor precio</option>
+          <option value="mayor">Mayor precio</option>
+        </select>
       </div>
 
       <!-- Filtros -->
@@ -569,7 +635,7 @@
   <div id="cart-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
     <div class="glass-card w-full max-w-lg p-6 rounded-3xl border border-cyan-500/40 relative flex flex-col max-h-[90vh]">
       <div class="flex justify-between items-center mb-4 border-b border-slate-800 pb-3">
-        <h3 class="text-xl font-bold font-orbitron text-white flex items-center gap-2">
+        <h3 class="text-xl font-bold text-white flex items-center gap-2">
           <i class="fa-solid fa-cart-shopping text-cyan-400"></i> Tu Carrito de Compras
         </h3>
         <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
@@ -596,7 +662,7 @@
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-10">
         <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Antes de traer tu equipo</span>
-        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2">PREGUNTAS FRECUENTES</h2>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-2">Preguntas frecuentes</h2>
       </div>
       <div class="space-y-3">
         <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
@@ -797,14 +863,14 @@
       
       <div class="text-center mb-12">
         <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Atención Presencial</span>
-        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2">VISITANOS EN MUNRO</h2>
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white mt-2">Visitanos en Munro</h2>
       </div>
 
       <div class="grid lg:grid-cols-2 gap-8 items-stretch">
         
         <div class="glass-card p-8 rounded-3xl border border-slate-800 flex flex-col justify-between">
           <div>
-            <h3 class="text-xl font-bold text-white mb-6 font-orbitron">Taller de Reparación & Asesoramiento</h3>
+            <h3 class="text-xl font-bold text-white mb-6">Taller de Reparación & Asesoramiento</h3>
             
             <div class="space-y-6">
               <div class="flex items-start gap-4">
@@ -824,7 +890,7 @@
                 </div>
                 <div>
                   <h4 class="font-bold text-white text-sm">Horarios de Atención</h4>
-                  <p class="text-slate-300 text-sm mt-1">Lunes a Sábado - Atención 24 hs (Consultas digitales)</p>
+                  <p class="text-slate-300 text-sm mt-1">Consultas por WhatsApp de lunes a sábado</p>
                   <p class="text-slate-500 text-xs mt-0.5">Recepción presencial con coordinación previa</p>
                 </div>
               </div>
@@ -873,12 +939,38 @@
     <p>© 2026 NORTECH</p>
   </footer>
 
+  <!-- WhatsApp siempre a mano -->
+  <a href="https://wa.me/5491178176640" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp"
+     class="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-[#25D366] text-white text-3xl flex items-center justify-center shadow-lg shadow-black/50 hover:scale-110 transition">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ duration: 800, once: true });
 
     const phone = "5491178176640";
     const SCRAPER_API = "https://nortech-backend.onrender.com/api/componentes";
+
+    function toggleMenu(cerrar) {
+      const menu = document.getElementById('menu-movil');
+      const abrir = cerrar ? false : menu.classList.contains('hidden');
+      menu.classList.toggle('hidden', !abrir);
+      menu.classList.toggle('grid', abrir);
+      document.getElementById('menu-btn').setAttribute('aria-expanded', abrir);
+      document.querySelector('#menu-btn i').className = abrir ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    }
+    document.querySelectorAll('#menu-movil a').forEach(a => a.addEventListener('click', () => toggleMenu(true)));
+
+    function enviarPresupuesto(e) {
+      e.preventDefault();
+      const valor = id => document.getElementById(id).value.trim();
+      let msg = `👋 Hola NORTECH! Quiero pedir un presupuesto.\n\n🔧 *Equipo:* ${valor('pres-equipo')}`;
+      if (valor('pres-modelo')) msg += `\n🏷️ *Modelo:* ${valor('pres-modelo')}`;
+      msg += `\n⚠️ *Qué le pasa:* ${valor('pres-falla')}`;
+      if (valor('pres-nombre')) msg += `\n\nSoy ${valor('pres-nombre')}.`;
+      window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
 
     function quoteService(serviceName) {
       const message = `👋 Hola NORTECH! Quisiera consultar un presupuesto para el servicio de: *${serviceName}*. ¿Me podrían indicar cómo coordinar? ¡Gracias!`;
@@ -927,6 +1019,8 @@
       const normalizar = t => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
       const palabras = normalizar(document.getElementById('buscador').value.trim()).split(/\s+/).filter(Boolean);
       if (palabras.length) filteredProducts = filteredProducts.filter(p => palabras.every(w => normalizar(p.name).includes(w)));
+      const orden = document.getElementById('orden').value;
+      if (orden) filteredProducts = [...filteredProducts].sort((a, b) => orden === 'menor' ? a.price - b.price : b.price - a.price);
 
       if (filteredProducts.length === 0) {
         grid.innerHTML = `<p class="text-slate-500 text-center col-span-full py-10">No encontramos productos con esa búsqueda. Probá con otras palabras o consultanos por WhatsApp.</p>`;
@@ -942,8 +1036,8 @@
 
       grid.innerHTML = visibleProducts.map(p => `
         <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-cyan-500/50 transition">
-          <div class="relative overflow-hidden rounded-xl mb-4 bg-slate-900/90 border border-slate-800 h-44 flex items-center justify-center p-3">
-            <img src="${p.img}" alt="${p.name}" loading="lazy" class="max-h-full max-w-full object-contain" onerror="this.onerror=null;this.src='${fallbackSvg}';">
+          <div class="relative overflow-hidden rounded-xl mb-4 bg-slate-900/90 border border-slate-800 h-44 flex items-center justify-center p-3 img-cargando">
+            <img src="${p.img}" alt="${p.name}" loading="lazy" decoding="async" class="max-h-full max-w-full object-contain" onload="this.parentElement.classList.remove('img-cargando')" onerror="this.onerror=null;this.parentElement.classList.remove('img-cargando');this.src='${fallbackSvg}';">
           </div>
           <div>
             <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block mb-1">${formatearNombreCategoria(p.category)}</span>
