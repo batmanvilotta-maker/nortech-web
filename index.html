@@ -8,6 +8,58 @@
   <meta name="description" content="Laboratorio especializado en reparación de computadoras, notebooks, consolas y tienda online en Munro, Vicente López y Zona Norte. Diagnóstico de precisión y garantía escrita.">
   <meta name="keywords" content="servicio tecnico pc, reparacion de computadoras, munro, zona norte, servicio tecnico notebook, consolas">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.nortechhardware.com.ar/">
+  <meta name="theme-color" content="#050811">
+
+  <!-- Vista previa al compartir el link (WhatsApp, Facebook, Instagram) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="NORTECH">
+  <meta property="og:url" content="https://www.nortechhardware.com.ar/">
+  <meta property="og:title" content="NORTECH | Servicio Técnico de PC, Consolas y Notebooks en Munro">
+  <meta property="og:description" content="Reparación de PC, notebooks, Mac y consolas en Munro (Vicente López). Diagnóstico sin cargo y garantía escrita de 6 meses. Tienda de componentes con precios actualizados.">
+  <meta property="og:image" content="https://www.nortechhardware.com.ar/logo.png">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Datos del negocio para Google (búsquedas locales y Maps) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": ["ComputerStore", "LocalBusiness"],
+    "@id": "https://www.nortechhardware.com.ar/#negocio",
+    "name": "NORTECH",
+    "description": "Servicio técnico de PC, notebooks, Mac y consolas, recuperación de datos, mantenimiento para pymes y venta de componentes de PC en Munro, Vicente López.",
+    "url": "https://www.nortechhardware.com.ar/",
+    "logo": "https://www.nortechhardware.com.ar/logo.png",
+    "image": "https://www.nortechhardware.com.ar/logo.png",
+    "telephone": "+54 9 11 7360-7837",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Francisco Borges 4838",
+      "addressLocality": "Munro",
+      "addressRegion": "Buenos Aires",
+      "postalCode": "B1605",
+      "addressCountry": "AR"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": -34.5261394, "longitude": -58.5303681 },
+    "areaServed": ["Munro", "Vicente López", "San Isidro", "Zona Norte, Buenos Aires"],
+    "sameAs": ["https://www.instagram.com/nortech_zn/"],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de PC de escritorio" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de notebooks gamer y pro" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de Mac, iMac y MacBook" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de consolas PlayStation, Xbox y Nintendo" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Reparación de placas de video y motherboards" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Recuperación de datos" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mantenimiento informático para pymes" } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Limpieza y cambio de pasta térmica" } }
+      ]
+    }
+  }
+  </script>
 
   <link rel="icon" type="image/png" href="logo.png" />
 
@@ -102,6 +154,7 @@
         <a href="#shop" class="hover:text-cyan-400 transition text-cyan-400 font-bold">🛒 Shop Online</a>
         <a href="#pymes" class="hover:text-cyan-400 transition text-emerald-400 font-bold">🏢 Planes Pymes</a>
         <a href="#nosotros" class="hover:text-cyan-400 transition">Nosotros</a>
+        <a href="#preguntas-frecuentes" class="hover:text-cyan-400 transition">Preguntas</a>
         <a href="#ubicacion" class="hover:text-cyan-400 transition">Ubicación</a>
       </nav>
       
@@ -473,7 +526,16 @@
       <div class="text-center mb-10" data-aos="fade-up">
         <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Catálogo Sincronizado</span>
         <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2 mb-4">COMPONENTES DE PC</h2>
-        <p class="text-slate-400 text-sm max-w-xl mx-auto">Precios y disponibilidad actualizados directamente del catálogo de componentes.</p>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto">Procesadores, placas de video, motherboards, memorias, SSD, fuentes, gabinetes, monitores y PCs armadas. Solo productos con stock, con precios actualizados todos los días.</p>
+      </div>
+
+      <!-- Buscador -->
+      <div class="max-w-xl mx-auto mb-6">
+        <div class="relative">
+          <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-500"></i>
+          <input id="buscador" type="search" placeholder="Buscar: Ryzen 5, RTX 4060, SSD 1TB, fuente 650W..." autocomplete="off"
+                 class="w-full pl-11 pr-4 py-3 rounded-xl glass-card text-sm text-white placeholder-slate-500 outline-none focus:border-cyan-500">
+        </div>
       </div>
 
       <!-- Filtros -->
@@ -487,7 +549,9 @@
         <button onclick="filterCategory('almacenamiento', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Discos & SSD</button>
         <button onclick="filterCategory('fuentes', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Fuentes</button>
         <button onclick="filterCategory('gabinetes', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Gabinetes</button>
-        <button onclick="filterCategory('perifericos', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Periféricos / Varios</button>
+        <button onclick="filterCategory('refrigeracion', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Refrigeración</button>
+        <button onclick="filterCategory('monitores', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Monitores</button>
+        <button onclick="filterCategory('perifericos', this)" class="cat-btn px-4 py-2 rounded-xl text-xs font-bold glass-card text-slate-300 hover:text-cyan-400 transition">Periféricos</button>
       </div>
 
       <!-- Grilla de Productos -->
@@ -526,6 +590,206 @@
       </div>
     </div>
   </div>
+
+  <!-- PREGUNTAS FRECUENTES (las mantiene Rocky) -->
+  <section id="preguntas-frecuentes" class="py-20 px-6 bg-slate-950 border-t border-slate-800">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-10">
+        <span class="text-cyan-400 font-bold text-xs tracking-widest uppercase">Antes de traer tu equipo</span>
+        <h2 class="text-3xl sm:text-5xl font-black font-orbitron text-white mt-2">PREGUNTAS FRECUENTES</h2>
+      </div>
+      <div class="space-y-3">
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Cobran el diagnóstico?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">No, el diagnóstico y el presupuesto no tienen cargo. Te decimos qué le pasa a tu equipo y cuánto sale arreglarlo antes de que decidas si seguimos adelante.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Tienen garantía los trabajos?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Sí, damos garantía escrita de 6 meses en cada trabajo que hacemos. Tenemos más de 30 años de experiencia combinada en informática y electrónica.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Dónde están y cómo llevo el equipo?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Estamos en Francisco Borges 4838, Munro, Vicente López, y cubrimos toda la Zona Norte. La recepción presencial es con coordinación previa, así que primero escribinos por el botón de WhatsApp de la web para organizar la entrega.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Reparan notebooks Apple o MacBook?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Sí, trabajamos con Mac, iMac y MacBook: limpieza, upgrades de SSD y RAM, reparación de logic boards y sobrecalentamiento. Pasanos el modelo y el problema para avanzar con el diagnóstico.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Qué pasa si no pueden recuperar mis datos?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Si no recuperamos tus datos, no pagás. Trabajamos recuperación en discos, SSD, pendrives y celulares.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Venden PCs armadas o componentes?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Sí, tenemos tienda online con catálogo de componentes y PCs armadas, con precios y carrito de compra. Podés ver todo en nortechhardware.com.ar.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Cómo es el plan para pymes?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Tenemos tres planes según la cantidad de equipos: Inicial (hasta 5 equipos), Pro Pyme (6 a 15) y Corporativo (más de 15, con servidores y redes). Cada uno se cotiza a medida, así que te pedimos que nos escribas para armar la propuesta.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Qué incluye el Plan Inicial para pymes?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">El Plan Inicial es para hasta 5 equipos e incluye soporte remoto ilimitado por AnyDesk, optimización y antivirus, mantenimiento preventivo semestral y atención de emergencias en menos de 24 horas.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Arreglan consolas como PlayStation, Xbox o Nintendo?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Sí, hacemos servicio técnico de consolas PlayStation, Xbox y Nintendo. Contanos qué falla tiene la tuya y coordinamos el diagnóstico sin cargo.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Cada cuánto conviene hacer mantenimiento a la PC?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">En general conviene hacer una limpieza profunda con cambio de pasta térmica una o dos veces al año, sobre todo si usás la PC para gaming o streaming. Ofrecemos mantenimiento premium que incluye limpieza, pasta térmica y mejora de refrigeración.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Hacen mantenimiento preventivo o reparan motherboards y placas de video?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Sí, reparamos y hacemos mantenimiento preventivo de placas de video NVIDIA y AMD, y de motherboards tanto de notebooks como de PC de escritorio. También trabajamos fuentes, NVMe, clonado de discos y optimización para gaming o streaming.</p>
+        </details>
+        <details class="glass-card rounded-2xl border border-slate-800 p-5 group">
+          <summary class="cursor-pointer font-bold text-white text-sm flex justify-between items-center gap-4 list-none">
+            ¿Puedo hacer consultas sin ir presencialmente?
+            <i class="fa-solid fa-chevron-down text-cyan-400 text-xs transition group-open:rotate-180"></i>
+          </summary>
+          <p class="text-slate-300 text-sm mt-3 leading-relaxed">Sí, atendemos consultas digitales de lunes a sábado por el botón de WhatsApp que está en la web. La recepción del equipo en el local siempre es con coordinación previa.</p>
+        </details>
+      </div>
+    </div>
+    <script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "¿Cobran el diagnóstico?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No, el diagnóstico y el presupuesto no tienen cargo. Te decimos qué le pasa a tu equipo y cuánto sale arreglarlo antes de que decidas si seguimos adelante."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Tienen garantía los trabajos?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí, damos garantía escrita de 6 meses en cada trabajo que hacemos. Tenemos más de 30 años de experiencia combinada en informática y electrónica."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Dónde están y cómo llevo el equipo?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Estamos en Francisco Borges 4838, Munro, Vicente López, y cubrimos toda la Zona Norte. La recepción presencial es con coordinación previa, así que primero escribinos por el botón de WhatsApp de la web para organizar la entrega."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Reparan notebooks Apple o MacBook?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí, trabajamos con Mac, iMac y MacBook: limpieza, upgrades de SSD y RAM, reparación de logic boards y sobrecalentamiento. Pasanos el modelo y el problema para avanzar con el diagnóstico."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué pasa si no pueden recuperar mis datos?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Si no recuperamos tus datos, no pagás. Trabajamos recuperación en discos, SSD, pendrives y celulares."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Venden PCs armadas o componentes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí, tenemos tienda online con catálogo de componentes y PCs armadas, con precios y carrito de compra. Podés ver todo en nortechhardware.com.ar."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cómo es el plan para pymes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Tenemos tres planes según la cantidad de equipos: Inicial (hasta 5 equipos), Pro Pyme (6 a 15) y Corporativo (más de 15, con servidores y redes). Cada uno se cotiza a medida, así que te pedimos que nos escribas para armar la propuesta."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Qué incluye el Plan Inicial para pymes?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "El Plan Inicial es para hasta 5 equipos e incluye soporte remoto ilimitado por AnyDesk, optimización y antivirus, mantenimiento preventivo semestral y atención de emergencias en menos de 24 horas."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Arreglan consolas como PlayStation, Xbox o Nintendo?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí, hacemos servicio técnico de consolas PlayStation, Xbox y Nintendo. Contanos qué falla tiene la tuya y coordinamos el diagnóstico sin cargo."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Cada cuánto conviene hacer mantenimiento a la PC?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "En general conviene hacer una limpieza profunda con cambio de pasta térmica una o dos veces al año, sobre todo si usás la PC para gaming o streaming. Ofrecemos mantenimiento premium que incluye limpieza, pasta térmica y mejora de refrigeración."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Hacen mantenimiento preventivo o reparan motherboards y placas de video?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí, reparamos y hacemos mantenimiento preventivo de placas de video NVIDIA y AMD, y de motherboards tanto de notebooks como de PC de escritorio. También trabajamos fuentes, NVMe, clonado de discos y optimización para gaming o streaming."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "¿Puedo hacer consultas sin ir presencialmente?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Sí, atendemos consultas digitales de lunes a sábado por el botón de WhatsApp que está en la web. La recepción del equipo en el local siempre es con coordinación previa."
+   }
+  }
+ ]
+}
+    </script>
+  </section>
 
   <!-- UBICACIÓN EN MUNRO -->
   <section id="ubicacion" class="py-20 px-6 bg-slate-950 border-t border-slate-800">
@@ -600,8 +864,12 @@
     </div>
   </section>
 
-  <footer class="py-6 text-center text-slate-500 text-xs border-t border-slate-800">
-    <p>© 2026 NORTECH - Servicio técnico consolas y computadoras.</p>
+  <footer class="py-8 px-6 text-center text-slate-500 text-xs border-t border-slate-800 space-y-2">
+    <p class="text-slate-300 font-bold">NORTECH - Servicio técnico de PC, notebooks y consolas</p>
+    <p>Francisco Borges 4838, Munro (Vicente López), Buenos Aires · WhatsApp <a href="https://wa.me/5491173607837" target="_blank" rel="noopener" class="text-cyan-400 hover:underline">+54 9 11 7360-7837</a></p>
+    <p>Atendemos Munro, Vicente López, Florida, Carapachay, Villa Martelli, San Isidro y toda Zona Norte.</p>
+    <p><a href="https://www.instagram.com/nortech_zn/" target="_blank" rel="noopener" class="text-cyan-400 hover:underline"><i class="fa-brands fa-instagram"></i> @nortech_zn</a></p>
+    <p>© 2026 NORTECH</p>
   </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -651,12 +919,16 @@
     function renderFilteredProducts() {
       const grid = document.getElementById('products-grid');
       
-      filteredProducts = currentCategory === 'todos' 
-        ? allProducts 
+      filteredProducts = currentCategory === 'todos'
+        ? allProducts
         : allProducts.filter(p => p.category === currentCategory);
+      // Buscador: todas las palabras tienen que estar en el nombre (sin importar mayúsculas ni acentos).
+      const normalizar = t => t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+      const palabras = normalizar(document.getElementById('buscador').value.trim()).split(/\s+/).filter(Boolean);
+      if (palabras.length) filteredProducts = filteredProducts.filter(p => palabras.every(w => normalizar(p.name).includes(w)));
 
       if (filteredProducts.length === 0) {
-        grid.innerHTML = `<p class="text-slate-500 text-center col-span-full py-10">No hay productos disponibles en esta categoría actualmente.</p>`;
+        grid.innerHTML = `<p class="text-slate-500 text-center col-span-full py-10">No encontramos productos con esa búsqueda. Probá con otras palabras o consultanos por WhatsApp.</p>`;
         document.getElementById('paginacion-container').innerHTML = '';
         return;
       }
@@ -670,7 +942,7 @@
       grid.innerHTML = visibleProducts.map(p => `
         <div class="glass-card p-5 rounded-2xl flex flex-col justify-between border border-slate-800 hover:border-cyan-500/50 transition">
           <div class="relative overflow-hidden rounded-xl mb-4 bg-slate-900/90 border border-slate-800 h-44 flex items-center justify-center p-3">
-            <img src="${p.img}" alt="${p.name}" class="max-h-full max-w-full object-contain" onerror="this.onerror=null;this.src='${fallbackSvg}';">
+            <img src="${p.img}" alt="${p.name}" loading="lazy" class="max-h-full max-w-full object-contain" onerror="this.onerror=null;this.src='${fallbackSvg}';">
           </div>
           <div>
             <span class="text-[10px] font-bold text-cyan-400 uppercase tracking-wider block mb-1">${formatearNombreCategoria(p.category)}</span>
@@ -739,10 +1011,18 @@
         'almacenamiento': 'Almacenamiento',
         'fuentes': 'Fuente',
         'gabinetes': 'Gabinete',
-        'perifericos': 'Periféricos / Varios'
+        'refrigeracion': 'Refrigeración',
+        'monitores': 'Monitor',
+        'perifericos': 'Periférico'
       };
       return nombres[cat] || cat;
     }
+
+    let esperaBusqueda;
+    document.getElementById('buscador').addEventListener('input', () => {
+      clearTimeout(esperaBusqueda);
+      esperaBusqueda = setTimeout(() => { currentPage = 1; renderFilteredProducts(); }, 250);
+    });
 
     function addToCart(id) {
       const prod = allProducts.find(p => p.id === id);
